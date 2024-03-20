@@ -22,8 +22,7 @@ function Actors() {
 
   return (
     <div className="flex flex-row">
-      <div className="w-64 bg-teal-500"></div> <NavBar />
-      {/** replace with sideBar component*/}
+      <NavBar />
       <Cards actors={gitActors} />
     </div>
   )
