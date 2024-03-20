@@ -2,7 +2,7 @@
 import { fetchData } from "@/_utils/fetchData"
 
 const Test = async () => {
-  const data = await fetchData("movie/now_playing")
+  const data = await fetchData("/movie/now_playing")
 
   return (
     <div className="container mx-auto p-4">
