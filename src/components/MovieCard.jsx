@@ -4,7 +4,7 @@ import Link from 'next/link';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const MovieCard = ({ movie }) => {
-  // Destructure the necessary properties from the movie object
+
   const { id, title, overview, poster_path } = movie;
 
   return (

@@ -1,13 +1,13 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { fetchData } from '../../_utils/fetchData'; // Ensure this path is correct for your project
-import MovieCard from '../../components/MovieCard'; // Adjust the import path as necessary
+import { fetchData } from '../../_utils/fetchData'; 
+import MovieCard from '../../components/MovieCard'; 
 
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
-  const [category, setCategory] = useState('popular'); // Default category
+  const [category, setCategory] = useState('popular'); 
 
   // Map category names to TMDB API endpoints
   const categoryEndpoints = {
@@ -33,7 +33,7 @@ const MoviesPage = () => {
         </Link>
     <h1 className="text-3xl font-bold mb-4">Movies - {category}</h1>
     
-    {/* Dropdown menu for selecting movie category */}
+    {/* Dropdown menu */}
     <select
       value={category}
       onChange={e => setCategory(e.target.value)}
