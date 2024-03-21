@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react'
 import { fetchData } from '@/_utils/fetchData'
 import Cards from './Cards'
-import NavBar from './navbar/NavBar'
 
 function Actors() {
   const [gitActors, setGitActors] = useState([])
@@ -22,7 +21,6 @@ function Actors() {
 
   return (
     <div className="flex flex-row">
-      <NavBar />
       <Cards actors={gitActors} />
     </div>
   )
