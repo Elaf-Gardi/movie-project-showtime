@@ -1,12 +1,12 @@
 import React from 'react';
-import Actors from '@/app/components/Actors';
+import Actors from '@/components/Actors';
 
 function Home() {
   return (
-   <div>
-    <Actors/>
-   </div>
-  );
+    <div>
+      <Actors />
+    </div>
+  )
 }
 
-export default Home;
+export default Home

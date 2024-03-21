@@ -35,7 +35,7 @@ function Cards({ actors }) {
                     {movie.title}
                   </div>
                 ))}
-                <Link href={'/actor/'+ actor.id}>
+                <Link href={`/actors/${actor.id}`}>
                   <button className="absolute bottom-0 left-0 mb-5 ml-3 rounded-lg py-1 px-4 items-center justify-center font-medium bg-teal-500 hover:bg-teal-400 active:bg-teal-500">
                     More
                   </button>
