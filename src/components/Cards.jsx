@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 function Cards({ actors }) {
   return (
@@ -18,16 +19,27 @@ function Cards({ actors }) {
               className="object-cover rounded-2xl"
             />
             <div className="absolute rounded-2xl top-0 left-0 w-full h-full pl-3 bg-black bg-opacity-75 text-white transition-opacity duration-300 opacity-0 hover:opacity-100">
-              <h1 className='pt-8 pb-4 font-Roboto text-xl font-extrabold '>{actor.name}</h1>
+              <h1 className="pt-8 pb-4 font-Roboto text-xl font-extrabold ">
+                {actor.name}
+              </h1>
               <div>
-              <h5 className='font-Roboto font-semibold text-sm mb-2'>Known for:</h5>
+                <h5 className="font-Roboto font-semibold text-sm mb-2">
+                  Known for:
+                </h5>
                 {actor.known_for.map((movie) => (
-                  <div key={movie.id} className="font-Roboto font-medium text-sm pl-2 leading-5">
-                   {movie.title && <span>- </span>}
+                  <div
+                    key={movie.id}
+                    className="font-Roboto font-medium text-sm pl-2 leading-5"
+                  >
+                    {movie.title && <span>- </span>}
                     {movie.title}
-                    </div>
+                  </div>
                 ))}
-                <button className='absolute bottom-0 left-0 mb-5 ml-3 rounded-lg py-1 px-4 items-center justify-center font-medium bg-teal-500 hover:bg-teal-400'>More</button>
+                <Link href={'/actor/'+ actor.id}>
+                  <button className="absolute bottom-0 left-0 mb-5 ml-3 rounded-lg py-1 px-4 items-center justify-center font-medium bg-teal-500 hover:bg-teal-400 active:bg-teal-500">
+                    More
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

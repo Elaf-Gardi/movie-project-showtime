@@ -1,7 +1,7 @@
 "use client"
 import React, {useState, useEffect} from "react";
 import { fetchData } from "@/_utils/fetchData";
-import Cards from "./Cards"
+import Cards from "./Cards";
 
 function Actors(){
     const [gitActors, setGitActors] = useState([])
@@ -23,6 +23,7 @@ function Actors(){
         <div className="flex flex-row">
             <div className="w-64 bg-teal-500"></div> {/** replace with sideBar component*/} 
             <Cards actors={gitActors} />
+            
         </div>
     )
 }

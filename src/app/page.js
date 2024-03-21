@@ -1,10 +1,12 @@
-import React from "react"
-import Actors from "@/components/Actors"
+import React from 'react';
+import Actors from '@/components/Actors';
 
-export default function Home() {
+function Home() {
   return (
-    <div>
-      <Actors/>
-    </div>
-  )
+   <div>
+    <Actors/>
+   </div>
+  );
 }
+
+export default Home;
