@@ -1,5 +1,5 @@
 import React from 'react';
-import Actors from '@/components/Actors';
+import Actors from '@/app/components/Actors';
 
 function Home() {
   return (
