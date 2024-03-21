@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 
 const NavBar = () => {
@@ -15,9 +16,9 @@ const NavBar = () => {
 
         <div className="flex flex-col justify-between flex-1 mt-6">
           <nav>
-            <a
+            <Link
               className="flex items-center px-4 py-2 text-gray-700 bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-200"
-              href="#"
+              href="/"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -35,11 +36,11 @@ const NavBar = () => {
               </svg>
 
               <span className="mx-4 font-medium">Home</span>
-            </a>
+            </Link>
 
            
 
-            <a
+            <Link
               className="flex px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
@@ -89,9 +90,9 @@ const NavBar = () => {
                   </li>
                 </ul>
               </div>
-            </a>
+            </Link>
 
-            <a
+            <Link
               className="flex px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
@@ -138,9 +139,9 @@ const NavBar = () => {
                   </li>
                 </ul>
               </div>
-            </a>
+            </Link>
 
-            <a
+            <Link
               className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
@@ -160,9 +161,9 @@ const NavBar = () => {
               </svg>
 
               <span className="mx-4 font-medium">TV Shows</span>
-            </a>
+            </Link>
 
-            <a
+            <Link
               className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
@@ -189,7 +190,7 @@ const NavBar = () => {
               </svg>
 
               <span className="mx-4 font-medium">Actors</span>
-            </a>
+            </Link>
 
             <hr className="my-6 border-gray-200 dark:border-gray-600" />
           </nav>
