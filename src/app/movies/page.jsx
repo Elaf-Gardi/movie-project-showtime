@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { fetchData } from '../../_utils/fetchData'; 
-import MovieCard from '../../components/MovieCard'; 
+import { fetchData } from '@/_utils/fetchData';
+import MovieCard from '../components/MovieCard';
 
 
 const MoviesPage = () => {

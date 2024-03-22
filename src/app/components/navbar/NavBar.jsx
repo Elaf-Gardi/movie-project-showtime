@@ -1,13 +1,8 @@
-import React from "react"
+import React from 'react'
 
 const NavBar = () => {
   return (
     <div>
-      
-
-
-
-
       <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
         <h2 className="text-3xl font-semibold text-gray-800 dark:text-white">
           Show Time
@@ -37,13 +32,11 @@ const NavBar = () => {
               <span className="mx-4 font-medium">Home</span>
             </a>
 
-           
-
             <a
               className="flex px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
-             <svg
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -79,7 +72,9 @@ const NavBar = () => {
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Top Rate
                   </li>
-                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Popular</li>
+                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
+                    Popular
+                  </li>
 
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Now Playing
@@ -131,7 +126,9 @@ const NavBar = () => {
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Action
                   </li>
-                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Animation</li>
+                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
+                    Animation
+                  </li>
 
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Adventure
