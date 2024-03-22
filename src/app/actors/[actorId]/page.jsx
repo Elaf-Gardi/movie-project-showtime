@@ -40,12 +40,12 @@ const ActorInfo = async ({ params }) => {
           </h1>
           <div>
             <div className="mb-6">
-              <p className="flex flex-row items-center gap-2 font-Roboto text-gray-500 text-sm mb-2">
+              <p className="flex flex-row items-center gap-1 font-Roboto text-gray-500 text-sm mb-2">
                 <span className="text-teal-400 font-bold font-Roboto text-sm">
                   Birthday:
                 </span>
                 {actorInfo.birthday}
-                <span >({getAge(actorInfo.birthday)}) years old</span>
+                <span className='font-Roboto text-gray-500 text-sm'>({getAge(actorInfo.birthday)}) years old</span>
               </p>
               <p className="flex flex-row items-center gap-2 font-Roboto text-gray-500 text-sm mb-2">
                 <span className="text-teal-400 font-bold font-Roboto text-sm">
