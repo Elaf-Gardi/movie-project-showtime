@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import { TMDB_IMAGE_BASE_URL } from '@/data/constants'
 import React, { useState } from 'react'
 
-const BackgroundImage = ({ tmdbImageBase, selectedMovie }) => {
+const BackgroundImage = ({ selectedMovie }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const handleImageLoaded = () => {
@@ -15,8 +16,8 @@ const BackgroundImage = ({ tmdbImageBase, selectedMovie }) => {
       )}
       <img
         className={`w-full h-full object-cover ${!imageLoaded ? 'hidden' : ''}`}
-        src={`${tmdbImageBase}original${selectedMovie?.backdrop_path}`}
-        alt=""
+        src={`${TMDB_IMAGE_BASE_URL}original${selectedMovie?.backdrop_path}`}
+        alt={selectedMovie?.title}
         onLoad={handleImageLoaded}
       />
     </div>
