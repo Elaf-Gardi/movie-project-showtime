@@ -5,8 +5,7 @@ import Cards from './Cards'
 
 function Actors() {
   const [gitActors, setGitActors] = useState([])
-
-  useEffect(() => {
+useEffect(() => {
     const fetchAllActorsInfo = async () => {
       try {
         const data = await fetchData('person/popular')
@@ -25,5 +24,4 @@ function Actors() {
     </div>
   )
 }
-
-export default Actors
+export default Actors;
