@@ -1,16 +1,32 @@
-import React from 'react';
+// DynamicMovieList.js
+"use client";
+import React, { useState, useEffect } from 'react';
+import { fetchData } from '../../_utils/fetchData'; 
 import MovieCard from './MovieCard'; 
 
-const MovieList = ({ movies }) => {
+const DynamicMovieList = ({ category = 'popular' }) => { // Thats a default category, that way it will render regardless of the navbar
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const moviesData = await fetchData(`/movie/${category}`);
+        setMovies(moviesData.results || []);
+      } catch (error) {
+        console.error(`Failed to fetch movies:`, error);
+      }
+    };
+
+    fetchMovies();
+  }, [category]);
+
   return (
-    <div className="bg-gray-100 py-6 flex flex-wrap justify-center gap-4 sm:py-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {movies.map(movie => (
-        <div key={movie.id} className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
-          <MovieCard movie={movie} />
-        </div>
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );
 };
 
-export default MovieList;
+export default DynamicMovieList;
