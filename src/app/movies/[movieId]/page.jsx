@@ -1,5 +1,6 @@
 import { fetchData } from '@/_utils/fetchData';
 import MovieDetails from '@/components/MovieDetails';
+
 const MovieInfo = async ({ params }) => {
   const { movieId } = params;
   const movieDetails = await fetchData(`/movie/${movieId}`);

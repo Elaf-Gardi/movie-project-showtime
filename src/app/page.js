@@ -1,4 +1,4 @@
-import NavBar from '@/components/Sidebar/Sidebar'
+import NavBar from '@/components/navbar/NavBar'
 import React from 'react'
 import Actors from '@/components/Actors'
 import HeroSection from '@/components/Hero/Hero'

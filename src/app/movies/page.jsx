@@ -1,5 +1,4 @@
 import { fetchData } from '@/_utils/fetchData';
-import MovieList from '@/components/moviesPage/MovieList';
 
 export const MoviesPage = async ({ category = 'popular' }) => {
   
