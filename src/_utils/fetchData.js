@@ -21,3 +21,14 @@ export async function fetchData(endpoint) {
     throw error
   }
 }
+
+export const getMovie = async (searchTerm)=>{
+  const response = await fetch(`${TMDB_BASE_URL}/search/movies?query=${searchTerm}`,{
+    headers: {
+      Authorization: `Bearer ${BearerToken}`,
+    },
+  })
+
+  const data = await response.json()
+  return data.results
+}
