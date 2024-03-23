@@ -1,15 +1,13 @@
-import NavBar from '@/components/navbar/NavBar'
+import NavBar from '@/components/Sidebar/Sidebar'
 import React from 'react'
 import Actors from '@/components/Actors'
-
-import Link from 'next/link';
+import HeroSection from '@/components/Hero/Hero'
 
 export default function Home() {
   return (
-    <div>
-    <Link href='movies'> movies </Link>
+    <main>
+      <HeroSection />
       <Actors />
-
-    </div>
+    </main>
   )
 }
