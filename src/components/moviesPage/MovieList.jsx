@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchData } from '../../_utils/fetchData'; 
 import MovieCard from './MovieCard'; 
 
-const DynamicMovieList = ({ category = 'popular' }) => { // Thats a default category, that way it will render regardless of the navbar
+const MovieList = ({ category = 'popular' }) => { // Thats a default category, that way it will render regardless of the navbar
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const DynamicMovieList = ({ category = 'popular' }) => { // Thats a default cate
   );
 };
 
-export default DynamicMovieList;
+export default MovieList;

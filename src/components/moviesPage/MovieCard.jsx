@@ -7,7 +7,7 @@ const MovieCard = ({ movie }) => {
   const { id, title, poster_path, release_date, overview, vote_average } = movie;
   const formattedDate = new Date(release_date).getFullYear(); 
   const formattedRating = vote_average.toFixed(1); 
-  
+
 
   return (
     <Link href={`/movies/${id}`} passHref>

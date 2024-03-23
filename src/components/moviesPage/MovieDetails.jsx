@@ -35,15 +35,17 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Main Cast */}
             <div>
               <h2 className="text-2xl font-semibold mb-2">Main Cast</h2>
-              <ul> {/* actors logic here */}
-                {credits.cast.slice(0, 5).map((actor) => (  
-                  <li key={actor.id} className="mb-1">
-                    <Link href={`/actors/${actor.id}`}>
-                      <span className="text-blue-500 hover:text-blue-700">{actor.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <ul>
+              {credits.cast.slice(0, 5).map((actor) => (
+                <li key={actor.id} className="mb-1">
+                  <Link href={`/actors/${actor.id}`} passHref>
+                  <span className="text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                {actor.name}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
             </div>
   
             {/* Related Movies */}
