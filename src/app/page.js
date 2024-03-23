@@ -1,5 +1,5 @@
 import React from 'react'
-import Actors from './components/Actors';
+import Actors from '@/components/Actors';
 
 import Link from 'next/link';
 

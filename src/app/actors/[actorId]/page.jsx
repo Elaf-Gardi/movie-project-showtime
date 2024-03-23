@@ -1,6 +1,6 @@
 import { fetchData } from '@/_utils/fetchData'
-import ReadMore from '@/app/components/ReadMore'
-import MovieCard from '@/app/components/MovieCard'
+import ReadMore from '@/components/ReadMore'
+import MovieCard from '@/components/MovieCard'
 
 const getGenderText = (gender) => {
   switch (gender) {
