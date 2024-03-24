@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import React, { useEffect, useState } from 'react'
-import { FaSearch } from 'react-icons/fa'
 import Link from 'next/link'
 import Dropdown from '../Dropdown/Dropdown'
 import MobileNavigation from './MobileNavigation'
 import { fetchData } from '@/_utils/fetchData'
 import { moviesOptions } from '@/data/constants'
+import SearchBar from '../Search/SearchBar'
 
 const Navbar = () => {
   const [movieGenres, setMovieGenres] = useState([])
@@ -66,29 +67,11 @@ const Navbar = () => {
               <Dropdown
                 title="TV SHOWS"
                 options={tvGenres}
-                baseUrl="/tv-shows?genre="
+                baseUrl="/shows?genre="
               />
             </div>
 
-            {/* Search */}
-            <div className="relative">
-              <label
-                htmlFor="search"
-                className="text-sm font-medium text-gray-800 sr-only"
-              >
-                Search
-              </label>
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <FaSearch className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </div>
-              <input
-                type="search"
-                id="search"
-                className="block w-full p-3 pl-10 text-sm text-black  rounded-lg border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Search..."
-                required
-              />
-            </div>
+            <SearchBar />
           </div>
         </div>
       </nav>

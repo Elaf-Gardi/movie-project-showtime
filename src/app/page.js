@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <main>
       {/* <Link href="/movies">Movies</Link> */}
-      <Navbar />
       <HeroSection />
       <Actors />
     </main>

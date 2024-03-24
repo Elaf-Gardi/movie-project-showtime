@@ -25,15 +25,3 @@ export async function fetchData(endpoint, options = {}) {
     throw error
   }
 }
-
-// Fetch Movie Genres
-export async function fetchMovieGenres(options = {}) {
-  const endpoint = '/genre/movie/list'
-  return fetchData(endpoint, options)
-}
-
-// Fetch TV Show Genres
-export async function fetchTvGenres(options = {}) {
-  const endpoint = '/genre/tv/list'
-  return fetchData(endpoint, options)
-}
