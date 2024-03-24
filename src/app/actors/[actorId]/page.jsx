@@ -27,7 +27,7 @@ const ActorInfo = async ({ params }) => {
   const relatedMovies = await fetchData(`/person/${actorId}/movie_credits`);
 
   return (
-    <div className="px-10 py-10 overflow-hidden mt-16">
+    <div className="px-10 mt-28 mb-8 overflow-hidden">
       <div className="flex md:flex-row items-center flex-col md:gap-10 md:flex-1">
         <div className="w-64 md:w-72 h-80 mb-20">
           <img

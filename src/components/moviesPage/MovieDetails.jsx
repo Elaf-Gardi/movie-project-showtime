@@ -6,7 +6,6 @@ import { GoDot } from 'react-icons/go'
 import HeartIcon from '../HeartIcon'
 import WishListCheck from '../WishListIcon'
 import { BsFillPlayFill } from 'react-icons/bs'
-import Cards from '../Cards'
 import ActorCard from '../ActorCard/ActorCard'
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
@@ -37,10 +36,10 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden md:mt-12">
-      <div className="container mx-auto md:py-12">
+      <div className="mx-auto md:py-7">
         <div>
           <div
-            className="flex flex-col lg:flex-row p-6"
+            className="flex flex-col lg:flex-row p-6 mb-10"
             style={{
               background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
               backgroundSize: 'cover',
@@ -150,27 +149,27 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
           </div>
 
           <div>
-            {/* Movie Porduction companies 
+           
              <div className="flex flex-col min-w-full items-center lg:w-1/4 p-4">
               <h2 className="text-gray-900 text-xl font-Poppins font-semibold mb-4">
                 Production Companies
               </h2>
-              <div className="flex flex-row gap-10 justify-center items-center w-full">
+              <div className="flex flex-row gap-10 bg-gray-950 justify-center items-center w-full">
                 {movieDetails.production_companies.slice(0,3).map((company) => (
                   <div key={company.id}>
                     {company.logo_path && (
                       <img
                         src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
                         alt={company.name}
-                        className="w-24 h-1/2"
+                        className="w-1/2 h-1/2 mb-2"
                       />
                     )}
-                   
+                    <p className='font-Poppins text-white text-lg font-semibold'>{company.name}</p>
                   </div>
                 ))}
               </div>
             </div>
-            */}
+            
 
             {/* Main Cast */}
             <div className="mt-10">
@@ -195,9 +194,9 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   Related Movies
                 </h2>
               </div>
-              <div className="lg:flex lg:flex-wrap -mx-2">
+              <div className="lg:flex lg:flex-row lg:gap-7 lg:flex-wrap">
                 {relatedMovies.results.slice(0, 5).map((relatedMovie) => (
-                  <div key={relatedMovie.id} className="md:w-1/5 p-2">
+                  <div key={relatedMovie.id} className="p-2">
                     <Link href={`/movies/${relatedMovie.id}`}>
                       <MovieCard movie={relatedMovie} />
                     </Link>
@@ -205,8 +204,6 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 ))}
               </div>
             </div>
-
-            {/* Trailer Section */}
           </div>
         </div>
       </div>
