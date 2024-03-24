@@ -32,6 +32,7 @@ const SearchBar = () => {
 
   const closeDropdown = () => {
     setSearchResults([])
+    setSearchTerm('')
   }
 
   return (

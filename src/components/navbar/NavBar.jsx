@@ -28,11 +28,6 @@ const Navbar = () => {
 
     fetchGenres()
   }, [])
-  {
-    /**
-console.log(movieGenres)
-  console.log(tvGenres) */
-  }
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -54,27 +49,25 @@ console.log(movieGenres)
           {/* buttons */}
           <div className="text-2xl flex gap-3 lg:gap-44 xl:gap-56 font-normal tracking-wider items-center">
             <div className="flex gap-x-8">
-              <Link href="/" className="py-2 text-sm sm:text-lg">
-                HOME
-              </Link>
               <Dropdown
                 title="MOVIES"
                 options={moviesOptions}
                 baseUrl="/movies?type="
-                
               />
 
               <Dropdown
                 title="GENRE"
                 options={movieGenres}
                 baseUrl="/movies?genre="
-                
               />
               <Dropdown
                 title="TV SHOWS"
                 options={tvGenres}
                 baseUrl="/shows?genre="
               />
+              <Link href="/actors" className="py-2 text-sm sm:text-lg">
+                Actors
+              </Link>
             </div>
 
             <SearchBar />

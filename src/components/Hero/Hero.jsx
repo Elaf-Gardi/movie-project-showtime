@@ -62,22 +62,22 @@ const HeroSection = () => {
           <div className="w-[600px] py-10 sm:py-14 sm:px-10  bg-blue-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 border border-gray-100/10 cursor-grabbing">
             <Carousel {...carouselConfig}>
               {latestMovies.slice(1).map((movie) => (
-                <div className='hover:scale-110 transition-all duration-300 ease-in-out'>
-                   <img
+                <div
                   key={movie.id}
-                  src={`${TMDB_IMAGE_BASE_URL}w500${movie.poster_path}`}
-                  alt={movie.title}
-                  className="w-44 cursor-pointer"
-                  onClick={() => handleMovieClick(movie)}
-                  draggable="false"
-                />
+                  className="hover:scale-110 transition-all duration-300 ease-in-out"
+                >
+                  <img
+                    src={`${TMDB_IMAGE_BASE_URL}w500${movie.poster_path}`}
+                    alt={movie.title}
+                    className="w-44 cursor-pointer"
+                    onClick={() => handleMovieClick(movie)}
+                    draggable="false"
+                  />
                 </div>
-               
               ))}
             </Carousel>
           </div>
         )}
-       
       </div>
     </section>
   )
