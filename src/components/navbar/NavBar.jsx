@@ -35,8 +35,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="hidden lg:block text-gray-800 h-auto lg:fixed shadow-sm lg:top-0 lg:w-full z-50 bg-transparent">
-        <div className="flex flex-col md:flex-row items-center w-full justify-between px-12">
+      <nav className="hidden lg:block text-gray-800 h-auto lg:fixed shadow-sm lg:top-0 lg:w-full z-50 bg-transparent" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', borderBottom: 'none' }}>
+        <div className="flex flex-col md:flex-row items-center w-full justify-between px-12" style={{ backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)' }}>
           <Link href="/" className="flex items-center">
             <img
               alt="ShowTime Logo"
