@@ -35,7 +35,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden">
+    <div className="min-h-screen flex flex-col overflow-hidden mt-12">
       <div className="container mx-auto py-12">
         <div>
           <div
