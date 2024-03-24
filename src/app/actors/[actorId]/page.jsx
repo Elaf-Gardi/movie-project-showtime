@@ -27,8 +27,8 @@ const ActorInfo = async ({ params }) => {
   const relatedMovies = await fetchData(`/person/${actorId}/movie_credits`);
 
   return (
-    <div className="ml-44 mr-20 mt-24">
-      <div className="flex md:flex-row flex-col md:gap-10 md:flex-1">
+    <div className="px-10 py-10 overflow-hidden">
+      <div className="flex md:flex-row items-center flex-col md:gap-10 md:flex-1">
         <div className="w-64 md:w-72 h-80 mb-20">
           <img
             src={`https://image.tmdb.org/t/p/w500/${actorInfo.profile_path}`}
@@ -37,7 +37,7 @@ const ActorInfo = async ({ params }) => {
           />
         </div>
         <div className="flex md:flex-1 flex-col">
-          <h1 className="font-Roboto font-extrabold lg:text-4xl text-lg text-gray-900 md:tracking-wider mb-6">
+          <h1 className="font-Roboto font-extrabold lg:text-4xl text-xl text-gray-900 md:tracking-wider mb-6">
             {actorInfo.name}
           </h1>
           <div>
@@ -74,10 +74,10 @@ const ActorInfo = async ({ params }) => {
         </div>
       </div>
       <div className="mt-10">
-        <h2 className="text-2xl font-bold font-Roboto text-teal-400 mb-3">Known For</h2>
-        <div className="overflow-x-auto whitespace-nowrap">
-          {relatedMovies.cast.map((movie) => (
-            <div key={movie.id} className="inline-block mr-4">
+        <h2 className="text-2xl font-bold font-Roboto text-teal-400 mb-5">Known For</h2>
+        <div className="flex flex-col lg:flex-row items-center gap-10">
+          {relatedMovies.cast.slice(0,5).map((movie) => (
+            <div key={movie.id} className="inline-block ">
               <MovieCard movie={movie} />
             </div>
           ))}
