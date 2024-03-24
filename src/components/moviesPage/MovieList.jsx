@@ -21,7 +21,7 @@ const MovieList = ({ category = 'popular' }) => { // Thats a default category, t
   }, [category]);
 
   return (
-    <div className="flex flex-row flex-wrap justify-center gap-10 my-12 px-10">
+    <div className="flex flex-row flex-wrap justify-center gap-10 px-10 lg:mt-28 mt-10 mb-10">
       {movies.map(movie => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
