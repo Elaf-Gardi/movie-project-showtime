@@ -2,12 +2,10 @@
 import React, { useState, useEffect } from 'react'
 import { fetchData } from '@/_utils/fetchData'
 import Cards from './Cards'
-import NavBar from './navbar/NavBar'
 
 function Actors() {
   const [gitActors, setGitActors] = useState([])
-
-  useEffect(() => {
+useEffect(() => {
     const fetchAllActorsInfo = async () => {
       try {
         const data = await fetchData('person/popular')
@@ -22,10 +20,8 @@ function Actors() {
 
   return (
     <div className="flex flex-row">
-      <NavBar />
       <Cards actors={gitActors} />
     </div>
   )
 }
-
-export default Actors
+export default Actors;

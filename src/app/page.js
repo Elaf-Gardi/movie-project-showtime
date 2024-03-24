@@ -1,14 +1,14 @@
 import React from 'react'
 import Actors from '@/components/Actors'
-
-import TopNavBar from '@/components/navbar/TopNavBar';
+import HeroSection from '@/components/Hero/Hero'
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div>
-    <TopNavBar/>
+    <main>
+      <Link href="/movies">Movies</Link>
+      <HeroSection />
       <Actors />
-
-    </div>
+    </main>
   )
 }

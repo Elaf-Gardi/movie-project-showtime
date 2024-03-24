@@ -1,14 +1,8 @@
-import Link from "next/link"
-import React from "react"
+import React from 'react'
 
 const NavBar = () => {
   return (
     <div>
-      
-
-
-
-
       <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-800 dark:border-gray-600">
         <h2 className="text-3xl font-semibold text-gray-800 dark:text-white">
           Show Time
@@ -16,9 +10,9 @@ const NavBar = () => {
 
         <div className="flex flex-col justify-between flex-1 mt-6">
           <nav>
-            <Link
+            <a
               className="flex items-center px-4 py-2 text-gray-700 bg-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-200"
-              href="/"
+              href="#"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,15 +30,13 @@ const NavBar = () => {
               </svg>
 
               <span className="mx-4 font-medium">Home</span>
-            </Link>
+            </a>
 
-           
-
-            <Link
+            <a
               className="flex px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
-             <svg
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -80,7 +72,9 @@ const NavBar = () => {
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Top Rate
                   </li>
-                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Popular</li>
+                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
+                    Popular
+                  </li>
 
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Now Playing
@@ -90,9 +84,9 @@ const NavBar = () => {
                   </li>
                 </ul>
               </div>
-            </Link>
+            </a>
 
-            <Link
+            <a
               className="flex px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
@@ -132,16 +126,18 @@ const NavBar = () => {
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Action
                   </li>
-                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">Animation</li>
+                  <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
+                    Animation
+                  </li>
 
                   <li className="rounded-sm px-3 py-1 hover:bg-gray-100">
                     Adventure
                   </li>
                 </ul>
               </div>
-            </Link>
+            </a>
 
-            <Link
+            <a
               className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
@@ -161,9 +157,9 @@ const NavBar = () => {
               </svg>
 
               <span className="mx-4 font-medium">TV Shows</span>
-            </Link>
+            </a>
 
-            <Link
+            <a
               className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
               href="#"
             >
@@ -190,7 +186,7 @@ const NavBar = () => {
               </svg>
 
               <span className="mx-4 font-medium">Actors</span>
-            </Link>
+            </a>
 
             <hr className="my-6 border-gray-200 dark:border-gray-600" />
           </nav>
