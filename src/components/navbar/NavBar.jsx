@@ -28,16 +28,20 @@ const Navbar = () => {
 
     fetchGenres()
   }, [])
-  console.log(movieGenres)
-  console.log(tvGenres)
+  {
+    /**
+console.log(movieGenres)
+  console.log(tvGenres) */
+  }
+
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
   return (
     <>
-      <nav className="hidden lg:block text-gray-800 p-2 h-auto rounded-l">
-        <div className="flex flex-col md:flex-row items-center w-full justify-between px-12 my-2">
+      <nav className="hidden lg:block text-gray-800 h-auto shadow-sm lg:fixed lg:top-0 lg:w-full z-50 bg-white">
+        <div className="flex flex-col md:flex-row items-center w-full justify-between px-12">
           <Link href="/" className="flex items-center">
             <img
               alt="ShowTime Logo"
@@ -57,12 +61,14 @@ const Navbar = () => {
                 title="MOVIES"
                 options={moviesOptions}
                 baseUrl="/movies?type="
+                
               />
 
               <Dropdown
                 title="GENRE"
                 options={movieGenres}
                 baseUrl="/movies?genre="
+                
               />
               <Dropdown
                 title="TV SHOWS"

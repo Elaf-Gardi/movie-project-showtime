@@ -1,7 +1,7 @@
-import { fetchData } from '@/_utils/fetchData'
 import React, { useState } from 'react'
 import { FaSearch, FaSpinner } from 'react-icons/fa'
 import SearchResults from './SearchResults'
+import { fetchData } from '@/_utils/fetchData'
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -30,6 +30,10 @@ const SearchBar = () => {
     setIsLoading(false)
   }
 
+  const closeDropdown = () => {
+    setSearchResults([])
+  }
+
   return (
     <div className="relative w-72">
       <label
@@ -55,7 +59,7 @@ const SearchBar = () => {
         required
       />
 
-      {searchResults.length > 0 && <SearchResults results={searchResults} />}
+      {searchResults.length > 0 && <SearchResults results={searchResults} closeDropdown={closeDropdown} />}
     </div>
   )
 }
