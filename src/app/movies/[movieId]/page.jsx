@@ -1,4 +1,5 @@
 import { fetchData } from '@/_utils/fetchData';
+import MovieCard from '@/components/moviesPage/MovieCard';
 import MovieDetails from '@/components/moviesPage/MovieDetails';
 
 const MovieInfo = async ({ params }) => {
@@ -21,6 +22,7 @@ const MovieInfo = async ({ params }) => {
     relatedMovies={relatedMovies} 
     trailers={trailers} 
   />
+ 
   );
 };
 

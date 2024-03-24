@@ -7,8 +7,11 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      "Roboto": ["Roboto", "sans"]
+      "Roboto": ["Roboto", "sans"],
+      "Poppins": ["Poppins", "Roboto", "sans"]
     }
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-3d')({ legacy: true }),
+  ],
 }
