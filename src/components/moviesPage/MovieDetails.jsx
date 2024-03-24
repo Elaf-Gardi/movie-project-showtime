@@ -6,7 +6,7 @@ import { GoDot } from 'react-icons/go'
 import HeartIcon from '../HeartIcon'
 import WishListCheck from '../WishListIcon'
 import { BsFillPlayFill } from 'react-icons/bs'
-import Cards from '../Cards'
+import ActorCard from '../ActorCard/ActorCard'
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
 
@@ -35,8 +35,8 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden">
-      <div className="container mx-auto py-12">
+    <div className="min-h-screen flex flex-col overflow-hidden md:mt-12">
+      <div className="container mx-auto md:py-12">
         <div>
           <div
             className="flex flex-col lg:flex-row p-6"
@@ -113,7 +113,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                     }}
                     className="flex items-center justify-center gap-1 text-white font-bold hover:text-gray-300 transition duration-300"
                   >
-                    <BsFillPlayFill className='text-2xl' />
+                    <BsFillPlayFill className="text-2xl" />
                     Play Trailer
                   </button>
                 </div>
@@ -178,7 +178,13 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   Top billed cast
                 </h2>
               </div>
-              <Cards actors={credits.cast.slice(0, 5)} />
+              <div className="flex flex-col justify-center items-center p-8">
+                <div className="flex flex-row flex-wrap justify-center items-center gap-10">
+                  {credits.cast.slice(0, 5).map((actor) => (
+                    <ActorCard key={actor.id} actor={actor} />
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Related Movies */}
