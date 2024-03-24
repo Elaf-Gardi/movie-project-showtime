@@ -27,7 +27,7 @@ const ActorInfo = async ({ params }) => {
   const relatedMovies = await fetchData(`/person/${actorId}/movie_credits`);
 
   return (
-    <div className="px-10 py-10 overflow-hidden">
+    <div className="px-10 py-10 overflow-hidden mt-16">
       <div className="flex md:flex-row items-center flex-col md:gap-10 md:flex-1">
         <div className="w-64 md:w-72 h-80 mb-20">
           <img
@@ -73,7 +73,7 @@ const ActorInfo = async ({ params }) => {
           </div>
         </div>
       </div>
-      <div className="mt-10">
+      <div className="mt-16">
         <h2 className="text-2xl font-bold font-Roboto text-teal-400 mb-5">Known For</h2>
         <div className="flex flex-col lg:flex-row items-center gap-10">
           {relatedMovies.cast.slice(0,5).map((movie) => (
