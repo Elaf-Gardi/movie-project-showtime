@@ -6,7 +6,6 @@ import { GoDot } from 'react-icons/go'
 import HeartIcon from '../HeartIcon'
 import WishListCheck from '../WishListIcon'
 import { BsFillPlayFill } from 'react-icons/bs'
-import Cards from '../Cards'
 import ActorCard from '../ActorCard/ActorCard'
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'

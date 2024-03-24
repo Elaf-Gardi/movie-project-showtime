@@ -13,12 +13,8 @@ export const MoviesPage = async ({ category = 'popular' }) => {
   const moviesData = await fetchData(`/movie/${endpoint}`)
   const movies = endpoint === 'latest' ? [moviesData] : moviesData.results || []
 
-  // Server-side code ends here. The rest would be client-side logic for rendering and interaction.
-  // Note: Dynamic interactions like category selection would still need to be handled in a client component.
   return (
     <>
-      {/* Navigation and dynamic category selection would go here */}
-      {/* <section className="max-w-6xl mx-auto px-4 md:px-8 lg:px-16 py-8"></section> */}
       <MovieList movies={movies} />
     </>
   )

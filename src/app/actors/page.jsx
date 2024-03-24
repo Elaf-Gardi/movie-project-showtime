@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { fetchData } from '@/_utils/fetchData'
-import Cards from '@/components/Cards'
 import ActorCard from '@/components/ActorCard/ActorCard'
 
 const Actors = () => {
