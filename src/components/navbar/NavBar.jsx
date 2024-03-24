@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="hidden lg:block text-gray-800 h-auto shadow-sm lg:fixed lg:top-0 lg:w-full z-50 bg-white">
+      <nav className="hidden lg:block text-gray-800 h-auto lg:fixed shadow-sm lg:top-0 lg:w-full z-50 bg-transparent">
         <div className="flex flex-col md:flex-row items-center w-full justify-between px-12">
           <Link href="/" className="flex items-center">
             <img
@@ -47,25 +47,26 @@ const Navbar = () => {
             />
           </Link>
           {/* buttons */}
-          <div className="text-2xl flex gap-3 lg:gap-44 xl:gap-56 font-normal tracking-wider items-center">
-            <div className="flex gap-x-8">
+          <div className="text-2xl flex gap-3 lg:gap-44 xl:gap-56  items-center">
+            <div className="flex gap-x-8 items-center">
               <Dropdown
-                title="MOVIES"
+                title="Movies"
                 options={moviesOptions}
                 baseUrl="/movies?type="
+                className="font-Roboto text-red"
               />
 
               <Dropdown
-                title="GENRE"
+                title="Genre"
                 options={movieGenres}
                 baseUrl="/movies?genre="
               />
               <Dropdown
-                title="TV SHOWS"
+                title="TV Shows"
                 options={tvGenres}
                 baseUrl="/shows?genre="
               />
-              <Link href="/actors" className="py-2 text-sm sm:text-lg">
+              <Link href="/actors" className="text-lg font-Roboto text-white font-semibold rounded-lg py-2  ">
                 Actors
               </Link>
             </div>

@@ -5,7 +5,7 @@ import { FaAngleDown } from 'react-icons/fa'
 const Dropdown = ({ title, options, baseUrl }) => {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="text-sm sm:text-lg focus:outline-none focus:ring-blue-300 font-normal rounded-lg py-2 text-center inline-flex items-center ">
+      <Menu.Button className="text-lg font-Roboto text-white font-semibold rounded-lg py-2 inline-flex items-center ">
         {title}
         <FaAngleDown className="ml-2" />
       </Menu.Button>
