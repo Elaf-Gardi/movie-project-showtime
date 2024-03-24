@@ -10,12 +10,12 @@ const Dropdown = ({ title, options, baseUrl }) => {
         <FaAngleDown className="ml-2" />
       </Menu.Button>
 
-      <Menu.Items className="rounded-lg text-sm z-10 bg-gray-100 absolute">
+      <Menu.Items className="rounded-lg text-sm z-10 bg-gray-100 absolute max-h-60 overflow-y-auto scrollbar-hide">
         {options.map((option) => (
           <DropdownItem
-            key={option}
-            option={option}
-            href={`${baseUrl}${option.toLowerCase().replace(' ', '_')}`}
+            key={option.id}
+            option={option.name}
+            href={`${baseUrl}${option.name}`}
           />
         ))}
       </Menu.Items>

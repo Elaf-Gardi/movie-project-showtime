@@ -2,12 +2,18 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import { FaBars, FaSearch } from 'react-icons/fa'
 import Link from 'next/link'
 import Dropdown from '../Dropdown/Dropdown'
+import { useState } from 'react'
 const moviesOptions = ['Now Playing', 'Top Rated', 'Upcoming', 'Popular']
 const genreOptions = ['Action', 'Comedy', 'Drama', 'Fantasy']
 const tvShowsOptions = ['Drama', 'Sci-Fi', 'Thriller', 'Comedy']
-const MobileNavigation = ({ isOpen, toggleMenu }) => {
+const MobileNavigation = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
   return (
-    <div className="block md:hidden">
+    <div className="block lg:hidden">
       <div className="flex justify-between items-center p-4">
         <div>
           <img src="/showtime-logo2.png" alt="Logo" className="w-16" />
