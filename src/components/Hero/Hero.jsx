@@ -74,6 +74,7 @@ const HeroSection = () => {
             </Carousel>
           </div>
         )}
+       
       </div>
     </section>
   )

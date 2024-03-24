@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchData } from '../../_utils/fetchData'; 
 import MovieCard from './MovieCard'; 
 
-const DynamicMovieList = ({ category = 'popular' }) => { // Thats a default category, that way it will render regardless of the navbar
+const MovieList = ({ category = 'popular' }) => { // Thats a default category, that way it will render regardless of the navbar
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const DynamicMovieList = ({ category = 'popular' }) => { // Thats a default cate
   }, [category]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="flex flex-row flex-wrap justify-center gap-10 px-10">
       {movies.map(movie => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
@@ -29,4 +29,4 @@ const DynamicMovieList = ({ category = 'popular' }) => { // Thats a default cate
   );
 };
 
-export default DynamicMovieList;
+export default MovieList;
