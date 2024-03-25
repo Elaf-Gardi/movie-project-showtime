@@ -1,4 +1,4 @@
-export const carouselConfig = {
+export const heroCarouselConfig = {
   additionalTransfrom: 0,
   arrows: false,
   autoPlaySpeed: 3000,
@@ -11,7 +11,7 @@ export const carouselConfig = {
   infinite: true,
   itemClass: '',
   keyBoardControl: true,
-  minimumTouchDrag: 80,
+  minimumTouchDrag: 100,
   renderButtonGroupOutside: false,
   renderDotsOutside: false,
   responsive: {

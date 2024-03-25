@@ -3,7 +3,7 @@ import { FaSearch, FaSpinner } from 'react-icons/fa'
 import SearchResults from './SearchResults'
 import { fetchData } from '@/_utils/fetchData'
 
-const SearchBar = () => {
+const SearchBar = ({ isScrolled }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -35,8 +35,12 @@ const SearchBar = () => {
     setSearchTerm('')
   }
 
+  const searchBarClasses = isScrolled
+    ? 'border border-opacity-20 placeholder-gray-400'
+    : 'bg-transparent border border-white border-opacity-40 focus:border-opacity-80 text-white placeholder-white'
+
   return (
-    <div className="relative w-72">
+    <div className="relative w-80">
       <label
         htmlFor="search"
         className="text-sm font-medium text-gray-800 sr-only"
@@ -47,20 +51,24 @@ const SearchBar = () => {
         {isLoading ? (
           <FaSpinner className="w-4 h-4 animate-spin text-gray-500 dark:text-gray-400" />
         ) : (
-          <FaSearch className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+          <FaSearch
+            className={`w-4 h-4 ${isScrolled ? 'text-gray-500 ' : 'text-white '}`}
+          />
         )}
       </div>
       <input
         type="search"
         id="search"
-        className="block w-full p-3 pl-10 text-sm text-white rounded-lg border-gray-600 placeholder-gray-400 bg-transparent border-opacity-50" // Adjusted styles for transparency and border opacity
+        className={`block w-full p-3 pl-10 text-sm rounded-full border-gray-600  ${searchBarClasses} outline-none `}
         placeholder="Search..."
         value={searchTerm}
         onChange={handleSearchChange}
         required
       />
 
-      {searchResults.length > 0 && <SearchResults results={searchResults} closeDropdown={closeDropdown} />}
+      {searchResults.length > 0 && (
+        <SearchResults results={searchResults} closeDropdown={closeDropdown} />
+      )}
     </div>
   )
 }

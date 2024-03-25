@@ -8,7 +8,7 @@ const SearchResults = ({ results, closeDropdown }) => {
   }
 
   return (
-    <div className="mt-2 absolute top-12 bg-gray-100 z-50 w-full max-h-60 overflow-y-auto py-4 px-1">
+    <div className="mt-2 absolute top-12 bg-gray-100 text-black z-50 w-full max-h-60 overflow-y-auto py-4 px-1 scrollbar-hide rounded-lg">
       {results.map((result) => (
         <Link
           key={result.id}
