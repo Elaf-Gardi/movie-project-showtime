@@ -19,7 +19,7 @@ const Actors = () => {
   }, [])
 
   return (
-    <div className="flex flex-row md:py-24 bg-[#0c121d]">
+    <div className="flex flex-row md:py-24 bg-[#080B12]">
       <div className="flex flex-col justify-center items-center ">
         <div className="flex flex-row flex-wrap justify-center items-center gap-10">
           {actors.map((actor) => (

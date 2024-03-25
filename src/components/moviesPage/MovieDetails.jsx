@@ -39,7 +39,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
       <div className="mx-auto md:py-7">
         <div>
           <div
-            className="flex flex-col lg:flex-row p-6 mb-10"
+            className="flex flex-col lg:flex-row p-6"
             style={{
               background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
               backgroundSize: 'cover',
@@ -149,22 +149,19 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
           </div>
 
           <div>
-           
-             <div className="flex flex-col min-w-full items-center lg:w-1/4 p-4">
-              <h2 className="text-gray-900 text-xl font-Poppins font-semibold mb-4">
-                Production Companies
-              </h2>
-              <div className="flex flex-row gap-10 bg-gray-950 justify-center items-center w-full">
+           {/**production companies */}
+             <div className="flex flex-col min-w-full items-center ">
+              <div className="flex flex-row gap-10 py-4 px-4 lg:px-0 bg-gray-950 bg-opacity-10 justify-center items-end w-full">
                 {movieDetails.production_companies.slice(0,3).map((company) => (
-                  <div key={company.id}>
+                  <div key={company.id} className='flex flex-col items-center'>
                     {company.logo_path && (
                       <img
                         src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
                         alt={company.name}
-                        className="w-1/2 h-1/2 mb-2"
+                        className="w-8 h-8 lg:w-16 lg:h-16 mb-2"
                       />
                     )}
-                    <p className='font-Poppins text-white text-lg font-semibold'>{company.name}</p>
+                    <p className='font-Poppins text-gray-900 text-sm lg:text-lg font-bold'>{company.name}</p>
                   </div>
                 ))}
               </div>
