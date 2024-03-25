@@ -35,11 +35,11 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden">
-      <div className="container mx-auto py-12">
+    <div className="min-h-screen flex flex-col overflow-hidden ">
+      <div className=" mx-auto pb-12 ">
         <div>
           <div
-            className="flex flex-col lg:flex-row p-6"
+            className="flex flex-col lg:flex-row p-6 pt-32"
             style={{
               background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
               backgroundSize: 'cover',
@@ -50,7 +50,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             <div className="flex-none mb-4 lg:mb-0">
               <img
                 src={`${IMAGE_BASE_URL}${movieDetails.poster_path}`}
-                alt={`Poster of ${movieDetails.title}`}
+                alt={`Poster of ${movieDetails.name}`}
                 className="rounded-lg shadow-lg w-full lg:w-80 lg:h-96 object-cover"
               />
             </div>
@@ -58,10 +58,10 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             <div className="lg:ml-8 lg:w-3/4">
               <div className="flex flex-row gap-2 items-center mb-4">
                 <h1 className="lg:text-4xl text-3xl text-white font-Poppins font-bold">
-                  {movieDetails.title}
+                  {movieDetails.name}
                 </h1>
                 <p className="text-gray-200 font-Poppins font-bold text-sm lg:text-xl">
-                  ({getYear(movieDetails.release_date)})
+                  ({getYear(movieDetails.first_air_date)})
                 </p>
               </div>
 
@@ -72,7 +72,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   </p>
                   <GoDot className="text-white" />
                   <p className="text-sm text-white font-Poppins ">
-                    {movieDetails.release_date}
+                    {movieDetails.first_air_date}
                   </p>
                   <GoDot className="text-white" />
                   <p className="text-sm text-white font-Poppins ">
@@ -81,10 +81,10 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                       .slice(0, 3)
                       .join(', ')}
                   </p>
-                  <GoDot className="text-white" />
+                  {/* <GoDot className="text-white" />
                   <p className="text-sm text-white font-Poppins ">
                     {convertRuntime(movieDetails.runtime)}
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
@@ -128,7 +128,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 </p>
               </div>
 
-              <div className="flex flex-wrap flex-row gap-10 mb-10">
+              {/* <div className="flex flex-wrap flex-row gap-10 mb-10">
                 <div className="text-white font-Poppins text-sm font-medium">
                   <p>{director}</p>
                   <p className="font-light">Director</p>
@@ -144,7 +144,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

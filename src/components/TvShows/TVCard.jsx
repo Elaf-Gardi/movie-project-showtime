@@ -11,7 +11,7 @@ const TvCard = ({ tvShow }) => {
 
   return (
     <Link href={`/tvShows/${id}`} passHref>
-      <div className="relative w-52 h-80 rounded-2xl transition-transform hover:scale-110">
+      <div className="relative w-52 h-80 rounded-2xl transition-transform hover:scale-110 shadow-inner">
         <img
           src={`${IMAGE_BASE_URL}${poster_path}`}
           alt={`Poster of ${name}`}

@@ -1,7 +1,10 @@
 'use client'
 import { fetchData } from '@/_utils/fetchData'
 import TvCard from '@/components/TvShows/TVCard'
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 import React, { useEffect, useState } from 'react'
+import HeroSection from '@/components/tvShowsHero/Hero';
 
 const TvShowsPage = () => {
   const [tvShows, setTvShows] = useState([])
@@ -28,24 +31,35 @@ const TvShowsPage = () => {
   }
 
   return (
-    <div>
-      <div className="pagination-buttons flex justify-between">
+    <div className='bg-[#262626]'>
+      <HeroSection/>
+      {/* <div className="relative w-full h-full">
+        <div className="absolute inset-0 bg-black/70 shadow-inner " />
+          <img
+          className="w-full h-full object-cover"
+          src="/tvShows-hero-img.jpg"
+          alt="hero"
+          />
+      </div> */}
+        
+      <div className="pagination-buttons flex justify-between px-10  mt-10">
         <button
           onClick={goToPreviousPage}
           disabled={currentPage === 1}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className={`flex items-center bg-gray-800  ${currentPage === 1 ? 'cursor-not-allowed bg-gray-500/60 text-gray-400' : 'hover:bg-gray-700'} text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
         >
-          Previous
+          <IoIosArrowBack className="mr-2" /> Previous
         </button>
         <button
           onClick={goToNextPage}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="flex items-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Next
+          Next <IoIosArrowForward className="ml-2" />
+
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="flex flex-row flex-wrap justify-center gap-10 px-10  mt-10 pb-10">
         {tvShows.map((tvShow) => (
           <TvCard key={tvShow.id} tvShow={tvShow} />
         ))}
