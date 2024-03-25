@@ -69,7 +69,9 @@ const HeroSection = () => {
                   <img
                     src={`${TMDB_IMAGE_BASE_URL}w500${movie.poster_path}`}
                     alt={movie.name}
-                    className="w-44 cursor-pointer"
+                    className={`w-44 h-52 cursor-pointer !self-center ${
+                      movie.id === selectedMovie?.id ? '!h-64 !w-48' : 'mt-6'
+                    }`}
                     onClick={() => handleMovieClick(movie)}
                     draggable="false"
                   />
