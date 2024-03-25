@@ -9,6 +9,14 @@ module.exports = {
     fontFamily: {
       "Roboto": ["Roboto", "sans"],
       "Poppins": ["Poppins", "Roboto", "sans"]
+    },
+    colors:{
+      transpare:'trasnparent',
+      'white':'#fff',
+      'gray': '#191D26',
+      'darkRed':'#531516',
+      'lightRed':'#661B1C',
+      'darkGray':'#12151C'
     }
   },
   plugins: [

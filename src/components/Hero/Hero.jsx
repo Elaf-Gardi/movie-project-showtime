@@ -51,7 +51,7 @@ const HeroSection = () => {
 
       <div
         className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-black/70 bg-fixed 
-        flex flex-col lg:flex-row sm:items-center sm:justify-center gap-x-20 gap-y-44 px-4 pt-20 md:pt-10"
+        flex flex-col lg:flex-row sm:items-center sm:justify-center gap-x-20 lg:gap-y-44 gap-y-10 px-4 pt-20 md:pt-10"
       >
         <MovieDetails
           selectedMovie={selectedMovie}
@@ -59,22 +59,25 @@ const HeroSection = () => {
         />
 
         {latestMovies.length > 0 && (
-          <div className="w-[600px] py-10 sm:py-14 sm:px-10 bg-blue-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 border border-gray-100/10 cursor-grabbing">
+          <div className="w-[600px] py-10 sm:py-14 sm:px-10  bg-blue-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 border border-gray-100/10 cursor-grabbing">
             <Carousel {...carouselConfig}>
               {latestMovies.slice(1).map((movie) => (
-                <img
+                <div
                   key={movie.id}
-                  src={`${TMDB_IMAGE_BASE_URL}w500${movie.poster_path}`}
-                  alt={movie.title}
-                  className="w-44 cursor-pointer"
-                  onClick={() => handleMovieClick(movie)}
-                  draggable="false"
-                />
+                  className="hover:scale-110 transition-all duration-300 ease-in-out"
+                >
+                  <img
+                    src={`${TMDB_IMAGE_BASE_URL}w500${movie.poster_path}`}
+                    alt={movie.title}
+                    className="w-44 cursor-pointer"
+                    onClick={() => handleMovieClick(movie)}
+                    draggable="false"
+                  />
+                </div>
               ))}
             </Carousel>
           </div>
         )}
-       
       </div>
     </section>
   )

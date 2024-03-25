@@ -1,16 +1,16 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import MovieCard from './MovieCard'
 import { GoDot } from 'react-icons/go'
 import HeartIcon from '../HeartIcon'
 import WishListCheck from '../WishListIcon'
 import { BsFillPlayFill } from 'react-icons/bs'
-import ActorCard from '../ActorCard/ActorCard'
+import Cards from '../Cards'
+import TvCard from './TVCard'
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
 
-const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
+const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   const director = credits.crew.find(
     (member) => member.job === 'Director',
   )?.name
@@ -35,8 +35,8 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden md:mt-12">
-      <div className="mx-auto md:py-7">
+    <div className="min-h-screen flex flex-col overflow-hidden">
+      <div className="container mx-auto py-12">
         <div>
           <div
             className="flex flex-col lg:flex-row p-6"
@@ -113,7 +113,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                     }}
                     className="flex items-center justify-center gap-1 text-white font-bold hover:text-gray-300 transition duration-300"
                   >
-                    <BsFillPlayFill className="text-2xl" />
+                    <BsFillPlayFill className='text-2xl' />
                     Play Trailer
                   </button>
                 </div>
@@ -149,24 +149,27 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
           </div>
 
           <div>
-           {/**production companies */}
-             <div className="flex flex-col min-w-full items-center ">
-              <div className="flex flex-row gap-10 py-4 px-4 lg:px-0 bg-gray-950 bg-opacity-10 justify-center items-end w-full">
+            {/* Movie Porduction companies 
+             <div className="flex flex-col min-w-full items-center lg:w-1/4 p-4">
+              <h2 className="text-gray-900 text-xl font-Poppins font-semibold mb-4">
+                Production Companies
+              </h2>
+              <div className="flex flex-row gap-10 justify-center items-center w-full">
                 {movieDetails.production_companies.slice(0,3).map((company) => (
-                  <div key={company.id} className='flex flex-col items-center'>
+                  <div key={company.id}>
                     {company.logo_path && (
                       <img
                         src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
                         alt={company.name}
-                        className="w-8 h-8 lg:w-16 lg:h-16 mb-2"
+                        className="w-24 h-1/2"
                       />
                     )}
-                    <p className='font-Poppins text-gray-900 text-sm lg:text-lg font-bold'>{company.name}</p>
+                   
                   </div>
                 ))}
               </div>
             </div>
-            
+            */}
 
             {/* Main Cast */}
             <div className="mt-10">
@@ -175,13 +178,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   Top billed cast
                 </h2>
               </div>
-              <div className="flex flex-col justify-center items-center p-8">
-                <div className="flex flex-row flex-wrap justify-center items-center gap-10">
-                  {credits.cast.slice(0, 5).map((actor) => (
-                    <ActorCard key={actor.id} actor={actor} />
-                  ))}
-                </div>
-              </div>
+              <Cards actors={credits.cast.slice(0, 5)} />
             </div>
 
             {/* Related Movies */}
@@ -191,16 +188,18 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   Related Movies
                 </h2>
               </div>
-              <div className="lg:flex lg:flex-row lg:gap-7 lg:flex-wrap">
+              <div className="lg:flex lg:flex-wrap -mx-2">
                 {relatedMovies.results.slice(0, 5).map((relatedMovie) => (
-                  <div key={relatedMovie.id} className="p-2">
-                    <Link href={`/movies/${relatedMovie.id}`}>
-                      <MovieCard movie={relatedMovie} />
+                  <div key={relatedMovie.id} className="md:w-1/5 p-2">
+                    <Link href={`/tvShows/${relatedMovie.id}`}>
+                      <TvCard tvShow={relatedMovie} />
                     </Link>
                   </div>
                 ))}
               </div>
             </div>
+
+            {/* Trailer Section */}
           </div>
         </div>
       </div>
@@ -208,4 +207,4 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   )
 }
 
-export default MovieDetails
+export default TvShowDetails
