@@ -53,7 +53,7 @@ const SearchBar = () => {
       <input
         type="search"
         id="search"
-        className="block w-full p-3 pl-10 text-sm text-black rounded-lg border-gray-600 placeholder-gray-400 "
+        className="block w-full p-3 pl-10 text-sm text-white rounded-lg border-gray-600 placeholder-gray-400 bg-transparent border-opacity-50" // Adjusted styles for transparency and border opacity
         placeholder="Search..."
         value={searchTerm}
         onChange={handleSearchChange}

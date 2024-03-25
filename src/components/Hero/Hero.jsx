@@ -51,7 +51,7 @@ const HeroSection = () => {
 
       <div
         className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-black/70 bg-fixed 
-        flex flex-col lg:flex-row sm:items-center sm:justify-center gap-x-20 gap-y-44 px-4 pt-20 md:pt-10"
+        flex flex-col lg:flex-row sm:items-center sm:justify-center gap-x-20 lg:gap-y-44 gap-y-10 px-4 pt-20 md:pt-10"
       >
         <MovieDetails
           selectedMovie={selectedMovie}
