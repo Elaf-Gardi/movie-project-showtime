@@ -20,8 +20,9 @@ const SearchBar = ({ isScrolled }) => {
     setIsLoading(true)
 
     try {
-      const endpoint = `/search/movie?query=${value}`
+      const endpoint = `/search/multi?query=${value}`
       const data = await fetchData(endpoint)
+      console.log(data);
       setSearchResults(data.results)
     } catch (error) {
       console.error('Search error:', error)

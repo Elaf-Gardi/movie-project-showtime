@@ -6,7 +6,7 @@ import MovieCard from '../../components/moviesPage/MovieCard'
 import { fetchData } from '@/_utils/fetchData'
 import CustomArrows from './CustomArrows'
 import { homePageCarouselConfig } from '@/data/homePageCarouselConfig'
-import LoadingSkeletonCard from '../moviesPage/LoadingSkeletonCard'
+import LoadingSkeletonCard from '../LoadingSkeletonCard'
 
 const Homepage = () => {
   const [trendingMovies, setTrendingMovies] = useState([])
