@@ -13,7 +13,7 @@ const Footer = () => {
       }
 
     return (
-      <footer className="bg-white">
+      <footer className=" bg-black/100 border-t-4 border-[#F5C513]">
         <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
           <nav
             className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
@@ -23,7 +23,7 @@ const Footer = () => {
               <div key={item.name} className="pb-6">
                 <Link
                   href={item.href}
-                  className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                  className="text-lg leading-6 text-white hover:border-b-4 hover:border-[#F5C513] hover:text-gray-900 duration-600 transition-all p-2 "
                 >
                   {item.name}
                 </Link>
