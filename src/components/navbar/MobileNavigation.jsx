@@ -2,33 +2,50 @@
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { FaBars, FaSearch } from 'react-icons/fa'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Dropdown from '../Dropdown/Dropdown'
-import { useState } from 'react'
+import { moviesOptions } from '@/data/constants'
+import SearchBar from '../Search/SearchBar'
 
-const moviesOptions = ['Now Playing', 'Top Rated', 'Upcoming', 'Popular']
-const genreOptions = ['Action', 'Comedy', 'Drama', 'Fantasy']
-const tvShowsOptions = ['Drama', 'Sci-Fi', 'Thriller', 'Comedy']
-const MobileNavigation = () => {
+const MobileNavigation = ({ movieGenres, tvGenres }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+
+  const navbarClasses = isScrolled
+    ? 'bg-slate-50 text-gray-700'
+    : 'bg-transparent text-white/90'
+
   return (
-    <div className="block lg:hidden">
+    <div className={`fixed top-0 w-full lg:hidden z-50 ${navbarClasses}`}>
       <div className="flex justify-between items-center p-4">
         <Link href={'/'}>
-          <img src="/showtime-logo2.png" alt="Logo" className="w-16" />
+          <img src="/showtime-logo-yellow.png" alt="Logo" className="w-32" />
         </Link>
         <button
           onClick={toggleMenu}
           className="text-3xl text-gray-800 focus:outline-none"
         >
-          <FaBars />
+          <FaBars className="text-primaryYellow" />
         </button>
       </div>
       {isOpen && (
-        <div className="fixed inset-0 bg-gray-800  z-50">
+        <div className="fixed inset-0 bg-slate-700  z-50">
           <div className="flex flex-col items-center justify-center h-2/4  space-y-4">
             <div className="flex justify-end">
               <button
@@ -39,34 +56,34 @@ const MobileNavigation = () => {
               </button>
             </div>
             <div className="flex flex-col space-y-4 text-white">
-              <Link href="/" className="py-2 text-sm sm:text-lg">
-                HOME
-              </Link>
               <Dropdown
-                title="MOVIES"
+                title="Movies"
                 options={moviesOptions}
-                baseUrl="/movies?type="
+                baseUrl="/movies?category="
+                className="font-Roboto text-red"
+                toggleMenu={toggleMenu}
               />
+
               <Dropdown
-                title="GENRE"
-                options={genreOptions}
+                title="Genre"
+                options={movieGenres}
                 baseUrl="/movies?genre="
+                toggleMenu={toggleMenu}
               />
               <Dropdown
-                title="TV SHOWS"
-                options={tvShowsOptions}
-                baseUrl="/tv-shows?genre="
+                title="TV Shows"
+                options={tvGenres}
+                baseUrl="/shows?genre="
+                toggleMenu={toggleMenu}
               />
-              <div className="flex items-center rounded-lg bg-gray-700 p-2">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="bg-transparent outline-none text-gray-100 placeholder-gray-400 flex-grow"
-                />
-                <button className="text-gray-100">
-                  <FaSearch />
-                </button>
-              </div>
+              <Link
+                onClick={toggleMenu}
+                href="/actors"
+                className="text-lg font-Roboto font-semibold rounded-lg py-2"
+              >
+                Actors
+              </Link>
+              <SearchBar toggleMenu={toggleMenu} />
             </div>
           </div>
         </div>

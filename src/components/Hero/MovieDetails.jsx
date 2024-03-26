@@ -9,7 +9,7 @@ const MovieDetails = ({ selectedMovie, movieDetails }) => {
   }
 
   return (
-    <div className="w-fit sm:w-[600px]">
+    <div className="w-fit sm:w-[600px] mt-10 sm:mt-0">
       <h1 className="text-5xl font-bold font-Poppins text-white mb-6">
         {selectedMovie?.title}
       </h1>

@@ -13,40 +13,39 @@ const Navbar = () => {
   const [tvGenres, setTvGenres] = useState([])
   const [isScrolled, setIsScrolled] = useState(false)
 
-useEffect(() => {
-  async function fetchGenres() {
-    try {
-      const movieGenresData = await fetchData('/genre/movie/list')
-      const tvGenresData = await fetchData('/genre/tv/list')
+  useEffect(() => {
+    async function fetchGenres() {
+      try {
+        const movieGenresData = await fetchData('/genre/movie/list')
+        const tvGenresData = await fetchData('/genre/tv/list')
 
-      // Process TV genres data to replace '&' with 'and' in genre names
-      const processedTvGenres = tvGenresData.genres.map((genre) => ({
-        id: genre.id,
-        name: genre.name.replace('&', 'and'),
-      }))
+        // Process TV genres data to replace '&' with 'and' in genre names
+        const processedTvGenres = tvGenresData.genres.map((genre) => ({
+          id: genre.id,
+          name: genre.name.replace('&', 'and'),
+        }))
 
-      setMovieGenres(movieGenresData.genres)
-      setTvGenres(processedTvGenres)
-    } catch (error) {
-      console.error('Error fetching genres:', error)
+        setMovieGenres(movieGenresData.genres)
+        setTvGenres(processedTvGenres)
+      } catch (error) {
+        console.error('Error fetching genres:', error)
+      }
     }
-  }
 
-  fetchGenres()
+    fetchGenres()
 
-  // Event listener to check if the user has scrolled
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 0)
-  }
+    // Event listener to check if the user has scrolled
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
 
-  window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll)
 
-  // Clean up the event listener
-  return () => {
-    window.removeEventListener('scroll', handleScroll)
-  }
-}, [])
-
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const navbarClasses = isScrolled
     ? 'bg-slate-50 text-gray-700'
@@ -97,7 +96,7 @@ useEffect(() => {
           </div>
         </div>
       </nav>
-      <MobileNavigation />
+      <MobileNavigation movieGenres={movieGenres} tvGenres={tvGenres} />
     </>
   )
 }
