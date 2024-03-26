@@ -14,11 +14,14 @@ const TvShowsPage = () => {
   if (genreName) {
     genreName = genreName.replace('_and_', ' & ')
   }
+  if (!genreName) {
+    genreName = 'comedy'
+  }
   const [loading, setLoading] = useState(true)
   const [tvShows, setTvShows] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [genres, setGenres] = useState([])
-
+  console.log(genres)
   useEffect(() => {
     const fetchTvShows = async () => {
       try {
