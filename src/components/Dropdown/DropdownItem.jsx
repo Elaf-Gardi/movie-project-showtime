@@ -8,8 +8,8 @@ const DropdownItem = ({ option, href, toggleMenu }) => {
         <Link
           onClick={toggleMenu}
           href={href}
-          className={`block px-4 py-2 hover:bg-gray-200 rounded-lg   text-black  ${
-            active ? 'bg-gray-200  ' : ''
+          className={`block px-4 py-2  rounded-lg   text-black  ${
+            active ? 'font-semibold duration-100' : ''
           }`}
         >
           {option}

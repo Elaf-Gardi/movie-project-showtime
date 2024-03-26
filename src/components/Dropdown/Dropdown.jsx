@@ -11,7 +11,7 @@ const Dropdown = ({ title, options, baseUrl, toggleMenu }) => {
         <FaAngleDown className="ml-2" />
       </Menu.Button>
 
-      <Menu.Items className="rounded-lg text-sm z-10 bg-gray-100 absolute max-h-60 overflow-y-auto scrollbar-hide">
+      <Menu.Items className="rounded-lg text-sm z-10 bg-gray-100 absolute max-h-60 overflow-y-auto scrollbar-hide grid grid-cols-2 w-[300px]">
         {options.map((option) => (
           <DropdownItem
             key={option.id}
