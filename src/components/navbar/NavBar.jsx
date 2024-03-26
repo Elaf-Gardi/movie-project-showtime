@@ -18,7 +18,7 @@ const Navbar = () => {
       try {
         const movieGenresData = await fetchData('/genre/movie/list')
         const tvGenresData = await fetchData('/genre/tv/list')
-
+        console.log(movieGenresData);
         setMovieGenres(movieGenresData.genres)
         setTvGenres(tvGenresData.genres)
       } catch (error) {
@@ -47,9 +47,9 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`hidden lg:block lg:fixed shadow-sm lg:top-0 lg:w-full z-50 ${navbarClasses}`}
+        className={`hidden md:block lg:fixed shadow-sm lg:top-0 lg:w-full z-50 ${navbarClasses}`}
       >
-        <div className="flex flex-col md:flex-row items-center w-full justify-between px-12">
+        <div className="flex flex-col md:flex-row items-center w-full justify-between px-3 md:px-6">
           <Link href="/" className="flex items-center">
             <img
               alt="ShowTime Logo"
@@ -59,12 +59,12 @@ const Navbar = () => {
             />
           </Link>
           {/* buttons */}
-          <div className="text-2xl flex gap-3 lg:gap-44 xl:gap-56  items-center">
+          <div className="!text-lg xl:text-2xl flex gap-3 !lg:gap-32 xl:gap-56  items-center">
             <div className="flex gap-x-8 items-center">
               <Dropdown
                 title="Movies"
                 options={moviesOptions}
-                baseUrl="/movies?type="
+                baseUrl="/movies?category="
                 className="font-Roboto text-red"
               />
 

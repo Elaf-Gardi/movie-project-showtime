@@ -6,24 +6,64 @@ import { IoIosArrowBack } from 'react-icons/io'
 import React, { useEffect, useState } from 'react'
 import HeroSection from '@/components/tvShowsHero/Hero'
 import LoadingSkeletonCard from '@/components/LoadingSkeletonCard'
+import { useSearchParams } from 'next/navigation'
 
 const TvShowsPage = () => {
+  const searchParams = useSearchParams()
+  let genreName = searchParams.get('genre')
+
   const [loading, setLoading] = useState(true)
   const [tvShows, setTvShows] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [genres, setGenres] = useState([])
 
   useEffect(() => {
     const fetchTvShows = async () => {
       try {
-        const TvShowsData = await fetchData(`/tv/popular?page=${currentPage}`)
-        setTvShows(TvShowsData.results || [])
+        const tvShowsData = await fetchData(`/tv/popular?page=${currentPage}`)
+        setTvShows(tvShowsData.results || [])
         setLoading(false)
       } catch (error) {
         console.error(`Failed to fetch tv Shows:`, error)
       }
     }
+
+    const fetchGenres = async () => {
+      try {
+        const genresData = await fetchData('/genre/tv/list')
+        setGenres(genresData.genres || [])
+      } catch (error) {
+        console.error(`Failed to fetch genres:`, error)
+      }
+    }
+
     fetchTvShows()
+    fetchGenres()
   }, [currentPage])
+
+  useEffect(() => {
+    if (genreName && genres.length > 0) {
+      const matchingGenre = genres.find(
+        (genre) =>
+          genre.name.toLowerCase() ===
+          genreName.replace('_', ' ').toLowerCase(),
+      )
+      if (matchingGenre) {
+        const fetchMoviesByGenre = async () => {
+          try {
+            const moviesData = await fetchData(
+              `/discover/tv?with_genres=${matchingGenre.id}`,
+            )
+            setTvShows(moviesData.results || [])
+            setLoading(false)
+          } catch (error) {
+            console.error(`Failed to fetch TV shows:`, error)
+          }
+        }
+        fetchMoviesByGenre()
+      }
+    }
+  }, [genreName, genres, currentPage])
 
   function goToNextPage() {
     setCurrentPage(currentPage + 1)
@@ -36,15 +76,9 @@ const TvShowsPage = () => {
   return (
     <div className="bg-[#262626]">
       <HeroSection />
-      {/* <div className="relative w-full h-full">
-        <div className="absolute inset-0 bg-black/70 shadow-inner " />
-          <img
-          className="w-full h-full object-cover"
-          src="/tvShows-hero-img.jpg"
-          alt="hero"
-          />
-      </div> */}
-
+      <h1 className="pl-4 md:pl-8 lg:pl-14 py-4 md:py-8 text-3xl md:text-4xl lg:text-5xl text-primaryYellow text-center md:text-left">
+        {genreName[0].toUpperCase() + genreName.slice(1)}
+      </h1>
       <div className="pagination-buttons flex justify-between px-10  mt-10">
         <button
           onClick={goToPreviousPage}
@@ -62,15 +96,11 @@ const TvShowsPage = () => {
       </div>
 
       <div className="flex flex-row flex-wrap justify-center gap-10 px-10  mt-10 pb-10">
-        <div className="flex flex-row flex-wrap justify-center gap-10 px-10  mt-10 pb-10">
-          {loading
-            ? Array.from({ length: 10 }).map((_, index) => (
-                <LoadingSkeletonCard key={index} />
-              ))
-            : tvShows.map((tvShow) => (
-                <TvCard key={tvShow.id} tvShow={tvShow} />
-              ))}
-        </div>
+        {loading
+          ? Array.from({ length: 10 }).map((_, index) => (
+              <LoadingSkeletonCard key={index} />
+            ))
+          : tvShows.map((tvShow) => <TvCard key={tvShow.id} tvShow={tvShow} />)}
       </div>
     </div>
   )

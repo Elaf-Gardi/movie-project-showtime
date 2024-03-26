@@ -7,7 +7,6 @@ const MovieDetails = ({ selectedMovie, movieDetails }) => {
     return `${hours}h ${remainingMinutes}m`
   }
 
-  console.log(movieDetails)
   return (
     <div className="w-fit sm:w-[600px]">
       <h1 className="text-5xl font-bold font-Poppins text-white mb-6">
