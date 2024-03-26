@@ -102,13 +102,13 @@ const TvShowsPage = () => {
         <button
           onClick={goToPreviousPage}
           disabled={currentPage === 1}
-          className={`flex items-center bg-customeBlue/10  ${currentPage === 1 ? 'cursor-not-allowed bg-gray-500/60 text-gray-400' : 'hover:bg-gray-700'} active:bg-customeBlue/10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+          className={`flex items-center bg-primaryYellow  ${currentPage === 1 ? 'cursor-not-allowed bg-gray-500/60 text-gray-400' : 'hover:bg-gray-300'} active:bg-customeBlue/10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
         >
           <IoIosArrowBack className="mr-2" /> Previous
         </button>
         <button
           onClick={goToNextPage}
-          className="flex items-center bg-customeBlue/10 hover:bg-gray-700 active:bg-customeBlue/10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="flex items-center bg-primaryYellow hover:bg-gray-300 active:bg-customeBlue/10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Next <IoIosArrowForward className="ml-2" />
         </button>
