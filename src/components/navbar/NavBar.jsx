@@ -48,7 +48,7 @@ const Navbar = () => {
   }, [])
 
   const navbarClasses = isScrolled
-    ? 'bg-slate-50 text-gray-700'
+    ? 'bg-[#151410] text-gray-700'
     : 'bg-transparent text-white/90'
   return (
     <>
@@ -66,7 +66,7 @@ const Navbar = () => {
           </Link>
           {/* buttons */}
           <div className="!text-lg xl:text-2xl flex gap-3 !lg:gap-32 xl:gap-56  items-center">
-            <div className="flex gap-x-8 items-center">
+            <div className="flex gap-x-8 items-center text-white">
               <Dropdown
                 title="Movies"
                 options={moviesOptions}
