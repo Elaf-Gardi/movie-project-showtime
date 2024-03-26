@@ -34,7 +34,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden ">
+    <div className="min-h-screen flex flex-col bg-black/100 overflow-hidden">
       <div className=" mx-auto pb-12 ">
         <div>
           <div
@@ -48,7 +48,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Movie Poster */}
             <div className="flex-none mb-4 lg:mb-0">
               <img
-                src={`${TMDB_IMAGE_BASE_URL}${movieDetails.poster_path}`}
+                src={`${TMDB_IMAGE_BASE_URL}w500${movieDetails.poster_path}`}
                 alt={`Poster of ${movieDetails.name}`}
                 className="rounded-lg shadow-lg w-full lg:w-80 lg:h-96 object-cover"
               />
