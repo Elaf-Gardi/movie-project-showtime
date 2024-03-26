@@ -22,7 +22,7 @@ const Footer = () => {
             <div key={item.name} className="pb-6">
               <Link
                 href={item.href}
-                className="text-lg leading-6 text-white hover:border-b-4 hover:border-[#F5C513] duration-600 transition-all p-2 "
+                className="text-lg leading-6 text-white hover:border-b-2 hover:border-[#F5C513] duration-600 transition-all p-2 "
               >
                 {item.name}
               </Link>

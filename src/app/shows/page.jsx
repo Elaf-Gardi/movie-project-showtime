@@ -74,28 +74,28 @@ const TvShowsPage = () => {
   }
 
   return (
-    <div className="bg-[#262626]">
+    <div className="bg-black/100">
       <HeroSection />
-      <h1 className="pl-4 md:pl-8 lg:pl-14 py-4 md:py-8 text-3xl md:text-4xl lg:text-5xl text-primaryYellow text-center md:text-left">
+      <h1 className="pl-4 md:pl-8 lg:pl-14 py-4 md:py-10 text-3xl md:text-4xl lg:text-5xl text-customeYellow font-Poppins font-semibold text-center md:text-left">
         {genreName[0].toUpperCase() + genreName.slice(1)}
       </h1>
-      <div className="pagination-buttons flex justify-between px-10  mt-10">
+      <div className="pagination-buttons flex justify-between px-10 mt-10">
         <button
           onClick={goToPreviousPage}
           disabled={currentPage === 1}
-          className={`flex items-center bg-gray-800  ${currentPage === 1 ? 'cursor-not-allowed bg-gray-500/60 text-gray-400' : 'hover:bg-gray-700'} text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+          className={`flex items-center bg-customeBlue/10  ${currentPage === 1 ? 'cursor-not-allowed bg-gray-500/60 text-gray-400' : 'hover:bg-gray-700'} active:bg-customeBlue/10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
         >
           <IoIosArrowBack className="mr-2" /> Previous
         </button>
         <button
           onClick={goToNextPage}
-          className="flex items-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="flex items-center bg-customeBlue/10 hover:bg-gray-700 active:bg-customeBlue/10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Next <IoIosArrowForward className="ml-2" />
         </button>
       </div>
 
-      <div className="flex flex-row flex-wrap justify-center gap-10 px-10  mt-10 pb-10">
+      <div className="flex flex-row flex-wrap justify-center gap-10 px-10  mt-10 pb-16">
         {loading
           ? Array.from({ length: 10 }).map((_, index) => (
               <LoadingSkeletonCard key={index} />

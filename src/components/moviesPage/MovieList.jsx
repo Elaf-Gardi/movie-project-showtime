@@ -39,11 +39,11 @@ const MovieList = ({ genresData }) => {
   }, [category, genreName, matchingGenre])
 
   return (
-    <section className="py-12 md:py-24 lg:py-32 bg-darkGray px-4 md:px-12">
-      <h1 className="text-3xl md:text-4xl lg:text-5xl text-primaryYellow text-center md:text-left">
+    <section className="py-12 md:pt-24 lg:pt-32 bg-black/100 px-4 md:px-12">
+      <h1 className="text-3xl md:text-4xl text-customeYellow/80 pb-2 border-b border-customeYellow/55 font-Poppins font-semibold text-center md:text-left">
         {genreName ? matchingGenre.name : categoryEndpoints[category]}
       </h1>
-      <div className="flex flex-row flex-wrap justify-center gap-10 lg:pt-28 pt-10 pb-10">
+      <div className="flex flex-row flex-wrap justify-center gap-10 lg:pt-12 pt-10 pb-10">
         {movies.length > 0
           ? movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
           : Array.from({ length: 10 }).map((_, index) => (

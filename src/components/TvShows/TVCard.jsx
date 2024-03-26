@@ -17,6 +17,7 @@ const TvCard = ({ tvShow }) => {
           alt={`Poster of ${name}`}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl z-10"
         />
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 transition-opacity duration-300 z-20 hover:opacity-0"></div>
         <div className="absolute top-0 left-0 bg-yellow-400 text-black rounded-br-lg px-2 py-1 text-sm font-bold z-20">
           {formattedRating}
         </div>

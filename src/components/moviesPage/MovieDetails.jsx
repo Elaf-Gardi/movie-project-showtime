@@ -90,12 +90,15 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
 
               <div className="flex flex-row gap-2 items-center mb-6">
                 <div
-                  className="rounded-full cursor-pointer hover:scale-110 text-lg text-white font-bold transition-all duration-300 ease-in-out bg-gray-900 hover:bg-customeYellow/90 w-12 h-12 flex items-center justify-center"
+                  className="rounded-full cursor-pointer hover:scale-110 text-xl text-white font-bold transition-all duration-300 ease-in-out bg-gray-900 w-16 h-16 flex items-center justify-center"
                   title={`${movieDetails.vote_count} user score`}
                 >
                   <p>{Math.round(movieDetails.vote_average * 10)}%</p>
                 </div>
-               
+                <p className="text-lg text-white font-bold font-Roboto">
+                  User<br></br>Score
+                </p>
+                </div>
               <div className="flex flex-row items-center gap-6 mb-8">
                 <HeartIcon />
                 <WishListCheck />
@@ -115,7 +118,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 </div>
               </div>
 
-              </div>
+             
 
               <div className="flex flex-col">
                 <p className="text-xl font-Poppins font-semibold tracking-wide text-white mb-2">
