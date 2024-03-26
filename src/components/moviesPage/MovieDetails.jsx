@@ -35,7 +35,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-black/100 overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-[#171717] overflow-hidden">
       <div className=" md:pt-10">
         <div>
           <div
@@ -95,26 +95,30 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 >
                   <p>{Math.round(movieDetails.vote_average * 10)}%</p>
                 </div>
-
-                <div className="flex flex-row items-center gap-6 mb-8">
-                  <HeartIcon />
-                  <WishListCheck />
-                  <div>
-                    <button
-                      onClick={() => {
-                        window.open(
-                          `https://www.youtube.com/watch?v=${mainTrailer.key}`,
-                          '_blank',
-                        )
-                      }}
-                      className="flex items-center justify-center gap-1 text-white font-bold hover:text-primaryYellow/80 active:text-white transition duration-300"
-                    >
-                      <BsFillPlayFill className="text-2xl" />
-                      Play Trailer
-                    </button>
-                  </div>
+                <p className="text-lg text-white font-bold font-Roboto">
+                  User<br></br>Score
+                </p>
+                </div>
+              <div className="flex flex-row items-center gap-6 mb-8">
+                <HeartIcon />
+                <WishListCheck />
+                <div>
+                  <button
+                    onClick={() => {
+                      window.open(
+                        `https://www.youtube.com/watch?v=${mainTrailer.key}`,
+                        '_blank',
+                      )
+                    }}
+                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-customeYellow/80 active:text-white transition duration-300"
+                  >
+                    <BsFillPlayFill className="text-2xl" />
+                    Play Trailer
+                  </button>
                 </div>
               </div>
+
+             
 
               <div className="flex flex-col">
                 <p className="text-xl font-Poppins font-semibold tracking-wide text-white mb-2">

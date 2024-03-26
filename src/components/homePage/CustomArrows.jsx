@@ -11,7 +11,7 @@ const CustomArrows = ({ next, previous, goToSlide, ...rest }) => {
         onClick={() => previous()}
       >
         <MdKeyboardArrowLeft
-          className="text-white bg-black/40 rounded-full "
+          className="text-white bg-black/40 hover:bg-black/60 active:bg-black/40 rounded-full "
           size={36}
         />
       </button>
@@ -20,7 +20,7 @@ const CustomArrows = ({ next, previous, goToSlide, ...rest }) => {
         onClick={() => next()}
       >
         <MdKeyboardArrowRight
-          className="text-white bg-black/40 rounded-full "
+          className="text-white bg-black/40 hover:bg-black/60 active:bg-black/40 rounded-full "
           size={36}
         />
       </button>

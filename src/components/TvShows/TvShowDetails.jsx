@@ -34,8 +34,8 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-black/100 overflow-hidden">
-      <div className=" mx-auto pb-12 ">
+    <div className="min-h-screen flex flex-col bg-[#171717] overflow-hidden ">
+      <div className="mx-auto pb-12 ">
         <div>
           <div
             className="flex flex-col lg:flex-row p-6 pt-32"
@@ -59,8 +59,8 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 <h1 className="lg:text-4xl text-3xl text-white font-Poppins font-bold">
                   {movieDetails.name}
                 </h1>
-                <p className="text-gray-200 font-Poppins font-bold text-sm lg:text-xl">
-                  ({getYear(movieDetails.first_air_date)})
+                <p className="text-black font-Poppins rounded-full py-1 px-2.5 bg-customeYellow font-bold text-sm lg:text-lg">
+                  {getYear(movieDetails.first_air_date)}
                 </p>
               </div>
 
@@ -80,10 +80,10 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                       .slice(0, 3)
                       .join(', ')}
                   </p>
-                  {/* <GoDot className="text-white" />
+                  <GoDot className="text-white" />
                   <p className="text-sm text-white font-Poppins ">
                     {convertRuntime(movieDetails.runtime)}
-                  </p> */}
+                  </p> 
                 </div>
               </div>
 
@@ -94,7 +94,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 >
                   <p>{Math.round(movieDetails.vote_average * 10)}%</p>
                 </div>
-                <p className="text-sm text-white font-bold font-Roboto">
+                <p className="text-lg text-white font-bold font-Roboto">
                   User<br></br>Score
                 </p>
               </div>
@@ -110,7 +110,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                         '_blank',
                       )
                     }}
-                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-gray-300 transition duration-300"
+                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-customeYellow/80 active:text-white transition duration-300"
                   >
                     <BsFillPlayFill className="text-2xl" />
                     Play Trailer
@@ -173,7 +173,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Main Cast */}
             <div className="mt-10">
               <div className="flex justify-center">
-                <h2 className="text-xl font-bold font-Poppins">
+              <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins">
                   Top billed cast
                 </h2>
               </div>
@@ -181,15 +181,15 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             </div>
 
             {/* Related Movies */}
-            <div className="mt-6 flex flex-col items-center">
-              <div className="flex justify-center">
-                <h2 className="text-xl font-bold font-Poppins mb-4">
-                  Related Movies
+            <div className="mt-20 flex flex-col ">
+              <div className="flex items-start">
+              <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins mb-8">
+                  Related TV Shows
                 </h2>
               </div>
-              <div className="lg:flex lg:flex-wrap -mx-2">
+              <div className="flex lg:flex-row lg:gap-10 gap-5 justify-center flex-wrap">
                 {relatedMovies.results.slice(0, 5).map((relatedMovie) => (
-                  <div key={relatedMovie.id} className="md:w-1/5 p-2">
+                  <div key={relatedMovie.id} className="">
                     <Link href={`/shows/${relatedMovie.id}`}>
                       <TvCard tvShow={relatedMovie} />
                     </Link>
