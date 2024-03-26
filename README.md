@@ -5,9 +5,9 @@
 Working with APIs to make our websites interactive sits at the core of frontend web development. At the end, frontend websites work as interfaces that give us the ability to interace with data. All this data is coming from some form of an API.
 
 ## Screen shots
--   Landing page 
+-   ####Landing page 
 ![Landing page](./public/landingMovies.png) 
-- TV shows landing page
+- ####TV shows landing page
 ![TV shows Landing page](./public/TVShows.png)
 
 ## Links
