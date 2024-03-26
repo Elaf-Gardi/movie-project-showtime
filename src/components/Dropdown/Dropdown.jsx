@@ -1,11 +1,11 @@
-import { Menu, Transition } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import DropdownItem from './DropdownItem'
 import { FaAngleDown } from 'react-icons/fa'
 
 const Dropdown = ({ title, options, baseUrl }) => {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="text-lg font-Roboto text-white font-semibold rounded-lg py-2 inline-flex items-center ">
+      <Menu.Button className="text-lg font-Roboto font-semibold rounded-lg py-2 inline-flex items-center ">
         {title}
         <FaAngleDown className="ml-2" />
       </Menu.Button>
@@ -15,7 +15,7 @@ const Dropdown = ({ title, options, baseUrl }) => {
           <DropdownItem
             key={option.id}
             option={option.name}
-            href={`${baseUrl}${option.name}`}
+            href={`${baseUrl}${option.name.replace(/\s/g, '_').toLowerCase()}`}
           />
         ))}
       </Menu.Items>

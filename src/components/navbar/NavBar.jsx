@@ -11,14 +11,14 @@ import SearchBar from '../Search/SearchBar'
 const Navbar = () => {
   const [movieGenres, setMovieGenres] = useState([])
   const [tvGenres, setTvGenres] = useState([])
-  const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     async function fetchGenres() {
       try {
         const movieGenresData = await fetchData('/genre/movie/list')
         const tvGenresData = await fetchData('/genre/tv/list')
-
+        console.log(movieGenresData);
         setMovieGenres(movieGenresData.genres)
         setTvGenres(tvGenresData.genres)
       } catch (error) {
@@ -27,32 +27,44 @@ const Navbar = () => {
     }
 
     fetchGenres()
+
+    // Event listener to check if the user has scrolled
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
-
+  const navbarClasses = isScrolled
+    ? 'bg-slate-50 text-gray-700'
+    : 'bg-transparent text-white/90'
   return (
     <>
-      <nav className="hidden lg:block text-gray-800 h-auto lg:fixed shadow-sm lg:top-0 lg:w-full z-50 bg-transparent" style={{ boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', borderBottom: 'none' }}>
-        <div className="flex flex-col md:flex-row items-center w-full justify-between px-12" style={{ backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)' }}>
+      <nav
+        className={`hidden md:block lg:fixed shadow-sm lg:top-0 lg:w-full z-50 ${navbarClasses}`}
+      >
+        <div className="flex flex-col md:flex-row items-center w-full justify-between px-3 md:px-6">
           <Link href="/" className="flex items-center">
             <img
               alt="ShowTime Logo"
-              width="120"
-              height="120"
-              decoding="async"
-              src="/showtime-logo2.png"
+              width="180"
+              height="180"
+              src="/showtime-logo-yellow.png"
             />
           </Link>
           {/* buttons */}
-          <div className="text-2xl flex gap-3 lg:gap-44 xl:gap-56  items-center">
+          <div className="!text-lg xl:text-2xl flex gap-3 !lg:gap-32 xl:gap-56  items-center">
             <div className="flex gap-x-8 items-center">
               <Dropdown
                 title="Movies"
                 options={moviesOptions}
-                baseUrl="/movies?type="
+                baseUrl="/movies?category="
                 className="font-Roboto text-red"
               />
 
@@ -66,16 +78,19 @@ const Navbar = () => {
                 options={tvGenres}
                 baseUrl="/shows?genre="
               />
-              <Link href="/actors" className="text-lg font-Roboto text-white font-semibold rounded-lg py-2  ">
+              <Link
+                href="/actors"
+                className="text-lg font-Roboto font-semibold rounded-lg py-2  "
+              >
                 Actors
               </Link>
             </div>
 
-            <SearchBar />
+            <SearchBar isScrolled={isScrolled} />
           </div>
         </div>
       </nav>
-      <MobileNavigation isOpen={isOpen} toggleMenu={toggleMenu} />
+      <MobileNavigation />
     </>
   )
 }

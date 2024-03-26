@@ -5,7 +5,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import BackgroundImage from './BackgroundImage'
 import { fetchData } from '@/_utils/fetchData'
-import { carouselConfig } from '@/data/carouselConfig'
+import { heroCarouselConfig } from '@/data/heroCarouselConfig'
 import MovieDetails from './MovieDetails'
 import { TMDB_IMAGE_BASE_URL } from '@/data/constants'
 
@@ -60,8 +60,8 @@ const HeroSection = () => {
 
         {latestMovies.length > 0 && (
           <div className="w-[600px] py-10 sm:py-14 sm:px-10  bg-blue-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 border border-gray-100/10 cursor-grabbing">
-            <Carousel {...carouselConfig}>
-              {latestMovies.slice(1).map((movie) => (
+            <Carousel {...heroCarouselConfig}>
+              {latestMovies.map((movie) => (
                 <div
                   key={movie.id}
                   className="hover:scale-110 transition-all duration-300 ease-in-out"
@@ -69,7 +69,9 @@ const HeroSection = () => {
                   <img
                     src={`${TMDB_IMAGE_BASE_URL}w500${movie.poster_path}`}
                     alt={movie.name}
-                    className="w-44 cursor-pointer"
+                    className={`w-44 h-52 cursor-pointer !self-center ${
+                      movie.id === selectedMovie?.id ? '!h-64 !w-48' : 'mt-6'
+                    }`}
                     onClick={() => handleMovieClick(movie)}
                     draggable="false"
                   />

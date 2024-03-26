@@ -1,17 +1,34 @@
-// DynamicMovieList.js
 'use client'
 import React, { useState, useEffect } from 'react'
 import { fetchData } from '../../_utils/fetchData'
 import MovieCard from './MovieCard'
+import LoadingSkeletonCard from '../LoadingSkeletonCard'
+import { useSearchParams } from 'next/navigation'
 
-const MovieList = ({ category = 'popular' }) => {
-  // Thats a default category, that way it will render regardless of the navbar
+const MovieList = ({ genresData }) => {
+  const searchParams = useSearchParams()
+  const category = searchParams.get('category') || 'popular'
+  const genreName = searchParams.get('genre')
+  const matchingGenre = genresData.genres.find(
+    (genre) =>
+      genre.name.toLowerCase() === genreName?.replace('_', ' ').toLowerCase(),
+  )
+
   const [movies, setMovies] = useState([])
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const moviesData = await fetchData(`/movie/${category}`)
+        let moviesData
+        if (genreName) {
+          moviesData = await fetchData(
+            `/discover/movie?with_genres=${matchingGenre.id}`,
+          )
+          console.log('movies by genere', moviesData)
+        } else {
+          moviesData = await fetchData(`/movie/${category}`)
+          console.log('movies by category', moviesData)
+        }
         setMovies(moviesData.results || [])
       } catch (error) {
         console.error(`Failed to fetch movies:`, error)
@@ -19,20 +36,30 @@ const MovieList = ({ category = 'popular' }) => {
     }
 
     fetchMovies()
-  }, [category])
+  }, [category, genreName, matchingGenre])
 
   return (
-    <div className="flex flex-col flex-wrap overflow-hidden bg-black/100 items-center px-10 lg:pt-28 pt-10 pb-10">
-      <h1 className="font-Poppins font-bold text-xl tracking-wider text-customeYellow mb-10">
-        Movies on <span className='border-b border-customeYellow cursor-pointer'>SHOWTIME</span>
+    <section className="py-12 md:py-24 lg:py-32 bg-darkGray px-4 md:px-12">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl text-primaryYellow text-center md:text-left">
+        {genreName ? matchingGenre.name : categoryEndpoints[category]}
       </h1>
-      <div className="flex flex-row flex-wrap justify-center gap-10 ">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+      <div className="flex flex-row flex-wrap justify-center gap-10 lg:pt-28 pt-10 pb-10">
+        {movies.length > 0
+          ? movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+          : Array.from({ length: 10 }).map((_, index) => (
+              <LoadingSkeletonCard key={index} />
+            ))}
       </div>
-    </div>
+    </section>
   )
 }
 
 export default MovieList
+
+const categoryEndpoints = {
+  top_rated: 'Top Rated',
+  popular: 'Popular',
+  latest: 'Latest',
+  now_playing: 'Now Playing',
+  upcoming: 'Upcoming',
+}
