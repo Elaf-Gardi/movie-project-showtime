@@ -2,9 +2,10 @@
 import { TMDB_IMAGE_BASE_URL } from '@/data/constants'
 import React, { useState } from 'react'
 
-const BackgroundImage = ({ selectedMovie }) => {
+const BackgroundImage = ({ selectedShow, firstShow }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
+  const image = selectedShow ?? firstShow
   const handleImageLoaded = () => {
     setImageLoaded(true)
   }
@@ -16,8 +17,8 @@ const BackgroundImage = ({ selectedMovie }) => {
       )}
       <img
         className={`w-full h-full object-cover ${!imageLoaded ? 'hidden' : ''}`}
-        src={`${TMDB_IMAGE_BASE_URL}original${selectedMovie?.backdrop_path}`}
-        alt={selectedMovie?.name}
+        src={`${TMDB_IMAGE_BASE_URL}original${image?.backdrop_path}`}
+        alt={selectedShow?.name}
         onLoad={handleImageLoaded}
       />
     </div>

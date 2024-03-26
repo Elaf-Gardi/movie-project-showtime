@@ -11,7 +11,9 @@ import { useSearchParams } from 'next/navigation'
 const TvShowsPage = () => {
   const searchParams = useSearchParams()
   let genreName = searchParams.get('genre')
-
+  if (genreName) {
+    genreName = genreName.replace('_and_', ' & ')
+  }
   const [loading, setLoading] = useState(true)
   const [tvShows, setTvShows] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
@@ -20,11 +22,25 @@ const TvShowsPage = () => {
   useEffect(() => {
     const fetchTvShows = async () => {
       try {
-        const tvShowsData = await fetchData(`/tv/popular?page=${currentPage}`)
-        setTvShows(tvShowsData.results || [])
+        let tvShowsData
+        if (genreName) {
+          const matchingGenre = genres.find(
+            (genre) =>
+              genre.name.toLowerCase() ===
+              genreName.replace('_', ' ').toLowerCase(),
+          )
+          if (matchingGenre) {
+            tvShowsData = await fetchData(
+              `/discover/tv?with_genres=${matchingGenre.id}&page=${currentPage}`,
+            )
+          }
+        } else {
+          tvShowsData = await fetchData(`/tv/popular?page=${currentPage}`)
+        }
+        setTvShows(tvShowsData?.results || [])
         setLoading(false)
       } catch (error) {
-        console.error(`Failed to fetch tv Shows:`, error)
+        console.error(`Failed to fetch TV shows:`, error)
       }
     }
 
@@ -75,7 +91,7 @@ const TvShowsPage = () => {
 
   return (
     <div className="bg-[#262626]">
-      <HeroSection />
+      <HeroSection shows={tvShows} />
       <h1 className="pl-4 md:pl-8 lg:pl-14 py-4 md:py-8 text-3xl md:text-4xl lg:text-5xl text-primaryYellow text-center md:text-left">
         {genreName[0].toUpperCase() + genreName.slice(1)}
       </h1>
