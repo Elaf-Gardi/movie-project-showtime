@@ -5,7 +5,7 @@ import { BsFillSuitHeartFill } from 'react-icons/bs'
 const ActorCard = ({ actor }) => {
   return (
     <Link key={actor.id} href={`/actors/${actor.id}`}>
-      <div className="lg:w-52 w-64 rounded-2xl relative border hover:scale-110 transition-all duration-300 ease-in-out border-white shadow-lg">
+      <div className="lg:w-52 w-36 rounded-2xl relative border hover:scale-110 transition-all duration-300 ease-in-out border-white shadow-lg">
         <img
           src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
           alt={`${actor.name}`}
@@ -15,8 +15,9 @@ const ActorCard = ({ actor }) => {
           <h1 className="font-Poppins text-gray-100 text-opacity-55 text-xl font-extrabold tracking-wider text-center">
             {actor.name}
           </h1>
+
           <div className="mt-2">
-            <BsFillSuitHeartFill className="text-teal-500 hover:text-teal-400 active:text-teal-500" />
+            <BsFillSuitHeartFill className="text-primaryYellow/75  hover:text-primaryYellow active:text-primaryYellow/75  " />
           </div>
         </div>
       </div>

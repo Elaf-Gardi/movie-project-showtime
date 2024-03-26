@@ -9,9 +9,7 @@ module.exports = {
     extend: {
       colors: {
         primaryYellow: '#F5C513',
-        darkRed: '#531516',
-        lightRed: '#661B1C',
-        darkGray: '#12151C',
+        customeBlue: '#5799EF',
       },
       fontFamily: {
         Roboto: ['Roboto', 'sans'],
@@ -20,4 +18,9 @@ module.exports = {
     },
     plugins: [],
   },
+}
+{
+  /**
+--color-surface-mixed-100: #0d1f3d;
+*/
 }

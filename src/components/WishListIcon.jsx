@@ -18,7 +18,7 @@ function WishListCheck() {
         className="hidden"
       />
       <div
-        className={`rounded-full w-10 h-10 bg-gray-900 flex items-center justify-center ${
+        className={`rounded-full w-10 h-10 bg-gray-900 hover:bg-primaryYellow/90 transition-all duration-300 ease-in-out flex items-center justify-center ${
           checked ? 'text-orange-700' : ''
         }`}
       >
@@ -26,7 +26,7 @@ function WishListCheck() {
           className={`w-3 h-3 ${checked ? 'text-orange-700' : 'text-white'}`}
         />
       </div>
-      <div className='bg-gray-900 flex items-center px-2 rounded-xl absolute top-full left-0 mt-1 opacity-0 pointer-events-none'>
+      <div className="bg-gray-900 flex items-center px-2 rounded-xl absolute top-full left-0 mt-1 opacity-0 pointer-events-none">
         <p className="text-white font-poppins font-medium text-sm w-24">
           Add to wishlist
         </p>

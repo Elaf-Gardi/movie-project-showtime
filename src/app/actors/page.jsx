@@ -23,7 +23,7 @@ const Actors = () => {
   }, [])
 
   return (
-    <div className="flex flex-row md:py-24 bg-[#080B12]">
+    <div className="flex flex-row py-16 md:py-52 bg-[#080B12]">
       <div className="flex flex-col justify-center items-center ">
         <div className="flex flex-row flex-wrap justify-center items-center gap-10">
           {loading
