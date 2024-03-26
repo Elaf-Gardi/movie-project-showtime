@@ -22,7 +22,7 @@ function Cards({ actors }) {
                     {actor.name}
                   </h1>
                   <div className="mt-2">
-                    <BsFillSuitHeartFill className="text-teal-500 hover:text-teal-400 active:text-teal-500" />
+                    <BsFillSuitHeartFill className="text-customeYellow  hover:text-customeYellow/75  active:text-customeYellow " />
                   </div>
                 </div>
               </div>

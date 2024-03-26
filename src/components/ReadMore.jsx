@@ -17,7 +17,7 @@ function ReadMore({ bio }) {
         {bio.length > 1300 && (
           <button
             onClick={handleToggleBio}
-            className="text-teal-400 underline hover:text-teal-300 active:text-teal-400"
+            className="text-customeYellow underline hover:text-customeYellow/80  active:text-customeYellow"
           >
             {showFullBio ? 'Read less' : 'Read more'}
           </button>

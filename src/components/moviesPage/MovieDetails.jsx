@@ -35,11 +35,11 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden md:mt-12">
-      <div className="mx-auto md:py-7">
+    <div className="min-h-screen flex flex-col bg-black/100 overflow-hidden">
+      <div className=" md:pt-10">
         <div>
           <div
-            className="flex flex-col lg:flex-row p-6"
+            className="flex flex-col lg:flex-row p-16"
             style={{
               background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
               backgroundSize: 'cover',
@@ -60,8 +60,8 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 <h1 className="lg:text-4xl text-3xl text-white font-Poppins font-bold">
                   {movieDetails.title}
                 </h1>
-                <p className="text-gray-200 font-Poppins font-bold text-sm lg:text-xl">
-                  ({getYear(movieDetails.release_date)})
+                <p className="text-black font-Poppins rounded-full py-1 px-2.5 bg-customeYellow font-bold text-sm lg:text-lg">
+                  {getYear(movieDetails.release_date)}
                 </p>
               </div>
 
@@ -90,16 +90,12 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
 
               <div className="flex flex-row gap-2 items-center mb-6">
                 <div
-                  className="rounded-full cursor-pointer hover:scale-110 text-xl text-white font-bold transition-all duration-300 ease-in-out bg-gray-900 w-16 h-16 flex items-center justify-center"
+                  className="rounded-full cursor-pointer hover:scale-110 text-lg text-white font-bold transition-all duration-300 ease-in-out bg-gray-900 hover:bg-customeYellow/90 w-12 h-12 flex items-center justify-center"
                   title={`${movieDetails.vote_count} user score`}
                 >
                   <p>{Math.round(movieDetails.vote_average * 10)}%</p>
                 </div>
-                <p className="text-sm text-white font-bold font-Roboto">
-                  User<br></br>Score
-                </p>
-              </div>
-
+               
               <div className="flex flex-row items-center gap-6 mb-8">
                 <HeartIcon />
                 <WishListCheck />
@@ -111,12 +107,14 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                         '_blank',
                       )
                     }}
-                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-gray-300 transition duration-300"
+                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-customeYellow/80 active:text-white transition duration-300"
                   >
                     <BsFillPlayFill className="text-2xl" />
                     Play Trailer
                   </button>
                 </div>
+              </div>
+
               </div>
 
               <div className="flex flex-col">
@@ -145,37 +143,42 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   </ul>
                 </div>
               </div>
+              {/**production companies */}
+              <div className="flex flex-col min-w-full items-start">
+                <div className="flex flex-row gap-10 py-2 px-2 rounded-lg bg-gray-100/10 items-start">
+                  {movieDetails.production_companies
+                    .slice(0, 2)
+                    .map((company) => (
+                      <div
+                        key={company.id}
+                        className="flex flex-col items-center"
+                      >
+                        {company.logo_path && (
+                          <img
+                            src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
+                            alt={company.name}
+                            className="w-8 h-8 lg:w-10 lg:h-10 mb-2"
+                          />
+                        )}
+                        <p className="font-Poppins text-white text-sm font-bold">
+                          {company.name}
+                        </p>
+                      </div>
+                    ))}
+                </div>
+              </div>
             </div>
           </div>
 
           <div>
-           {/**production companies */}
-             <div className="flex flex-col min-w-full items-center ">
-              <div className="flex flex-row gap-10 py-4 px-4 lg:px-0 bg-gray-950 bg-opacity-10 justify-center items-end w-full">
-                {movieDetails.production_companies.slice(0,3).map((company) => (
-                  <div key={company.id} className='flex flex-col items-center'>
-                    {company.logo_path && (
-                      <img
-                        src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
-                        alt={company.name}
-                        className="w-8 h-8 lg:w-16 lg:h-16 mb-2"
-                      />
-                    )}
-                    <p className='font-Poppins text-gray-900 text-sm lg:text-lg font-bold'>{company.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-
             {/* Main Cast */}
-            <div className="mt-10">
-              <div className="flex justify-center">
-                <h2 className="text-xl font-bold font-Poppins">
+            <div className="mt-20">
+              <div className="flex items-start">
+                <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins">
                   Top billed cast
                 </h2>
               </div>
-              <div className="flex flex-col justify-center items-center p-8">
+              <div className="flex flex-col justify-center items-center pt-12">
                 <div className="flex flex-row flex-wrap justify-center items-center gap-10">
                   {credits.cast.slice(0, 5).map((actor) => (
                     <ActorCard key={actor.id} actor={actor} />
@@ -185,15 +188,15 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             </div>
 
             {/* Related Movies */}
-            <div className="mt-6 flex flex-col items-center">
-              <div className="flex justify-center">
-                <h2 className="text-xl font-bold font-Poppins mb-4">
+            <div className="mt-20 mb-10">
+              <div className="flex items-start">
+              <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins mb-8">
                   Related Movies
                 </h2>
               </div>
-              <div className="lg:flex lg:flex-row lg:gap-7 lg:flex-wrap">
+              <div className="flex lg:flex-row lg:gap-10 gap-5 justify-center flex-wrap">
                 {relatedMovies.results.slice(0, 5).map((relatedMovie) => (
-                  <div key={relatedMovie.id} className="p-2">
+                  <div key={relatedMovie.id} className="mb-4">
                     <Link href={`/movies/${relatedMovie.id}`}>
                       <MovieCard movie={relatedMovie} />
                     </Link>

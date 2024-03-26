@@ -18,7 +18,7 @@ function WishListCheck() {
         className="hidden"
       />
       <div
-        className={`rounded-full w-10 h-10 bg-gray-900 flex items-center justify-center ${
+        className={`rounded-full w-10 h-10 bg-gray-900 hover:bg-customeYellow/90 transition-all duration-300 ease-in-out flex items-center justify-center ${
           checked ? 'text-orange-700' : ''
         }`}
       >
