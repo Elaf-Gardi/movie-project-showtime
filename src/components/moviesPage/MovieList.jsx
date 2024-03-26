@@ -39,7 +39,7 @@ const MovieList = ({ genresData }) => {
   }, [category, genreName, matchingGenre])
 
   return (
-    <section className="py-12 md:pt-24 lg:pt-32 bg-[#171717] px-4 md:px-12">
+    <section className="py-12 pt-32 bg-[#171717] px-4 md:px-12">
       <h1 className="text-3xl md:text-4xl text-primaryYellow/80 pb-2 border-b border-primaryYellow/55 font-Poppins font-semibold text-center md:text-left">
         {genreName ? matchingGenre.name : categoryEndpoints[category]}
       </h1>
