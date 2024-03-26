@@ -28,7 +28,7 @@ const MobileNavigation = ({ movieGenres, tvGenres }) => {
   }
 
   const navbarClasses = isScrolled
-    ? 'bg-slate-50 text-gray-700'
+    ? 'bg-[#151410] text-gray-700'
     : 'bg-transparent text-white/90'
 
   return (
@@ -45,7 +45,7 @@ const MobileNavigation = ({ movieGenres, tvGenres }) => {
         </button>
       </div>
       {isOpen && (
-        <div className="fixed inset-0 bg-slate-700  z-50">
+        <div className="fixed inset-0 bg-[#151410] z-50 slide-bottom">
           <div className="flex flex-col items-center justify-center h-2/4  space-y-4">
             <div className="flex justify-end">
               <button
@@ -55,7 +55,7 @@ const MobileNavigation = ({ movieGenres, tvGenres }) => {
                 <AiFillCloseCircle />
               </button>
             </div>
-            <div className="flex flex-col space-y-4 text-white">
+            <div className="flex flex-col text-4xl pt-44 space-y-8 text-white">
               <Dropdown
                 title="Movies"
                 options={moviesOptions}
