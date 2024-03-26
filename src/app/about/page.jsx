@@ -1,33 +1,37 @@
-import Card from '@/components/AboutCard/Card'
+import TeamCard from '@/components/TeamCard/TeamCard'
 import React from 'react'
 
 const About = () => {
   const teamMembers = [
     {
       name: 'Ninos Dinkha',
-      city: 'Dhoke',
-      linkedin: 'https://www.linkedin.com/in/ninosdinkha?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      city: 'Duhk',
+      linkedin:
+        'https://www.linkedin.com/in/ninosdinkha?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       github: 'https://github.com/Ninnoss',
       imgSrc: '/ninos1.png',
     },
     {
       name: 'Elaf Gradi',
-      city: 'Mousel',
-      linkedin: 'https://www.linkedin.com/in/elaf-ghassan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      city: 'Mosul',
+      linkedin:
+        'https://www.linkedin.com/in/elaf-ghassan?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       github: 'https://github.com/Elaf-Gardi',
       imgSrc: '/elaf2.png',
     },
     {
       name: 'Afyaa Khudur',
       city: 'Baghdad',
-      linkedin: 'https://www.linkedin.com/in/afeaa-khudur-301386249?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      linkedin:
+        'https://www.linkedin.com/in/afeaa-khudur-301386249?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       github: 'https://github.com/johndoe',
       imgSrc: '/afyaa.png',
     },
     {
       name: 'Noor Alhussein',
       city: 'Basrah',
-      linkedin: 'https://www.linkedin.com/in/halfhero?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      linkedin:
+        'https://www.linkedin.com/in/halfhero?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
       github: 'https://github.com/Halfhero212',
       imgSrc: '/noor1.png',
     },
@@ -41,12 +45,12 @@ const About = () => {
             Our Team
           </h2>
           <p className="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">
-          Meet the incredible minds behind this innovative project.
+            Meet the incredible minds behind this innovative project.
           </p>
         </div>
         <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
           {teamMembers.map((member, index) => (
-            <Card key={index} {...member} />
+            <TeamCard key={index} {...member} />
           ))}
         </div>
       </div>
