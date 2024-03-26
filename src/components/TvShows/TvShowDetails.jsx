@@ -7,8 +7,7 @@ import WishListCheck from '../WishListIcon'
 import { BsFillPlayFill } from 'react-icons/bs'
 import Cards from '../Cards'
 import TvCard from './TVCard'
-
-const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
+import { TMDB_IMAGE_BASE_URL } from '@/data/constants'
 
 const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
   const director = credits.crew.find(
@@ -41,7 +40,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
           <div
             className="flex flex-col lg:flex-row p-6 pt-32"
             style={{
-              background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
+              background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${TMDB_IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
             }}
@@ -49,7 +48,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Movie Poster */}
             <div className="flex-none mb-4 lg:mb-0">
               <img
-                src={`${IMAGE_BASE_URL}${movieDetails.poster_path}`}
+                src={`${TMDB_IMAGE_BASE_URL}${movieDetails.poster_path}`}
                 alt={`Poster of ${movieDetails.name}`}
                 className="rounded-lg shadow-lg w-full lg:w-80 lg:h-96 object-cover"
               />
@@ -113,7 +112,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                     }}
                     className="flex items-center justify-center gap-1 text-white font-bold hover:text-gray-300 transition duration-300"
                   >
-                    <BsFillPlayFill className='text-2xl' />
+                    <BsFillPlayFill className="text-2xl" />
                     Play Trailer
                   </button>
                 </div>
@@ -191,7 +190,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
               <div className="lg:flex lg:flex-wrap -mx-2">
                 {relatedMovies.results.slice(0, 5).map((relatedMovie) => (
                   <div key={relatedMovie.id} className="md:w-1/5 p-2">
-                    <Link href={`/tvShows/${relatedMovie.id}`}>
+                    <Link href={`/shows/${relatedMovie.id}`}>
                       <TvCard tvShow={relatedMovie} />
                     </Link>
                   </div>

@@ -2,11 +2,11 @@ import { fetchData } from '@/_utils/fetchData';
 import TvShowDetails from '@/components/TvShows/TvShowDetails';
 
 const SingleTvShowPage = async ({ params }) => {
-  const { tvShowId } = params;
-  const movieDetails = await fetchData(`/tv/${tvShowId}`);
-  const credits = await fetchData(`/tv/${tvShowId}/credits`);
-  const relatedMovies = await fetchData(`/tv/${tvShowId}/similar`);
-  const trailers = await fetchData(`/tv/${tvShowId}/videos`);
+  const { showId } = params;
+  const movieDetails = await fetchData(`/tv/${showId}`);
+  const credits = await fetchData(`/tv/${showId}/credits`);
+  const relatedMovies = await fetchData(`/tv/${showId}/similar`);
+  const trailers = await fetchData(`/tv/${showId}/videos`);
 
   // Find the director's name among the crew
   const director = credits.crew.find((member) => member.job === 'Director')?.name;
