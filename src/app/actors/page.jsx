@@ -11,7 +11,7 @@ const Actors = () => {
   useEffect(() => {
     const fetchAllActorsInfo = async () => {
       try {
-        const data = await fetchData('person/popular')
+        const data = await fetchData('trending/person/day')
         setActors(data.results)
         setLoading(false)
       } catch (error) {

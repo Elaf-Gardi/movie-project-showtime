@@ -178,7 +178,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 </h2>
               </div>
               <div className="flex flex-col justify-center items-center pt-12">
-                <div className="flex flex-row flex-wrap justify-center items-center">
+                <div className="flex flex-row flex-wrap gap-12 justify-center items-center">
                   {credits.cast.slice(0, 5).map((actor) => (
                     <ActorCard key={actor.id} actor={actor} />
                   ))}
