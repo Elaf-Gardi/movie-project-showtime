@@ -29,7 +29,7 @@ const MovieDetails = ({ selectedMovie, movieDetails }) => {
           <div className="mt-4">
             <Link
               href={`/movies/${selectedMovie?.id}`}
-              className="text-black font-semibold font-Poppins px-2 py-1.5 rounded-xl bg-primaryYellow hover:bg-primaryYellow/70 active:bg-primaryYellow transition-all ease-in-out duration-300"
+              className="text-white font-semibold font-Poppins px-2 py-1.5 rounded-xl bg-primaryYellow hover:bg-primaryYellow/70 active:bg-primaryYellow transition-all ease-in-out duration-300"
             >
               Read More
             </Link>
