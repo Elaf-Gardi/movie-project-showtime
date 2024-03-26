@@ -7,7 +7,7 @@ const ActorCard = ({ actor }) => {
 
   return (
     <Link key={actor.id} href={`/actors/${actor.id}`}>
-      <div className="lg:w-48 w-36 rounded-2xl relative border border-white shadow-lg overflow-hidden">
+      <div className="lg:w-48 w-36 rounded-2xl relative border hover:scale-110 transition-all duration-300 ease-in-out border-white shadow-lg overflow-hidden">
         {actor.profile_path ? (
           <img
             src={profilePath}

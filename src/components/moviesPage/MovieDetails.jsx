@@ -40,7 +40,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
       <div>
         <div>
           <div
-            className="flex flex-col lg:flex-row p-16"
+            className="flex flex-col lg:flex-row pt-28 p-16"
             style={{
               background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
               backgroundSize: 'cover',

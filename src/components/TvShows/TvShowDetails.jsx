@@ -5,7 +5,7 @@ import { GoDot } from 'react-icons/go'
 import HeartIcon from '../HeartIcon'
 import WishListCheck from '../WishListIcon'
 import { BsFillPlayFill } from 'react-icons/bs'
-import Cards from '../Cards'
+import ActorCard from '../ActorCard/ActorCard'
 import TvCard from './TVCard'
 import { TMDB_IMAGE_BASE_URL } from '@/data/constants'
 
@@ -59,7 +59,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 <h1 className="lg:text-4xl text-3xl text-white font-Poppins font-bold">
                   {movieDetails.name}
                 </h1>
-                <p className="text-black font-Poppins rounded-full py-1 px-2.5 bg-customeYellow font-bold text-sm lg:text-lg">
+                <p className="text-black font-Poppins rounded-full py-1 px-2.5 bg-primaryYellow font-bold text-sm lg:text-lg">
                   {getYear(movieDetails.first_air_date)}
                 </p>
               </div>
@@ -110,7 +110,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                         '_blank',
                       )
                     }}
-                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-customeYellow/80 active:text-white transition duration-300"
+                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-primaryYellow/80 active:text-white transition duration-300"
                   >
                     <BsFillPlayFill className="text-2xl" />
                     Play Trailer
@@ -173,32 +173,37 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Main Cast */}
             <div className="mt-10">
               <div className="flex justify-center">
-              <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins">
+              <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellow font-Poppins">
                   Top billed cast
                 </h2>
               </div>
-              <Cards actors={credits.cast.slice(0, 5)} />
+              <div className="flex flex-col justify-center items-center pt-12">
+                <div className="flex flex-row flex-wrap justify-center items-center gap-10">
+                  {credits.cast.slice(0, 5).map((actor) => (
+                    <ActorCard key={actor.id} actor={actor} />
+                  ))}
+                </div>
+              </div>
+              
             </div>
 
             {/* Related Movies */}
-            <div className="mt-20 flex flex-col ">
+            <div className="mt-20">
               <div className="flex items-start">
-              <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins mb-8">
+              <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellowfont-Poppins mb-8">
                   Related TV Shows
                 </h2>
               </div>
               <div className="flex lg:flex-row lg:gap-10 gap-5 justify-center flex-wrap">
                 {relatedMovies.results.slice(0, 5).map((relatedMovie) => (
-                  <div key={relatedMovie.id} className="">
-                    <Link href={`/shows/${relatedMovie.id}`}>
+                  <div key={relatedMovie.id}>
+                    <Link href={`/shows/${relatedMovie.id}`} className="mb-4">
                       <TvCard tvShow={relatedMovie} />
                     </Link>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Trailer Section */}
           </div>
         </div>
       </div>

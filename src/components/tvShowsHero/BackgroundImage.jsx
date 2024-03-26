@@ -13,7 +13,7 @@ const BackgroundImage = ({ selectedShow, firstShow }) => {
   return (
     <div className="relative w-full h-full">
       {!imageLoaded && (
-        <div className="absolute inset-0 bg-gray-300/95 animate-pulse" />
+        <div className="absolute inset-0 bg-gray-300 animate-pulse" />
       )}
       <img
         className={`w-full h-full object-cover ${!imageLoaded ? 'hidden' : ''}`}
