@@ -14,21 +14,21 @@ const TeamCard = ({ name, city, linkedin, github, imgSrc }) => {
         />
       </div>
       <div className="p-5">
-        <h3 className="text-xl font-bold tracking-tight text-gray-900 hover:text-[#F5C513]">
+        <h3 className="text-xl font-bold tracking-tight text-gray-900 hover:text-[#F5C513] font-Poppins">
           {name}
         </h3>
-        <span className="text-gray-500 ">Web Developer</span>
-        <p className="mt-3 mb-4 font-light text-gray-500 ">Based in: {city}</p>
+        <span className="text-gray-800 font-Poppins ">Web Developer</span>
+        <p className="mt-3 mb-4 font-light text-gray-800 font-Poppins ">Based in: {city}</p>
         <ul className="flex space-x-4 sm:mt-0">
           <li>
-            <Link href={github} className="text-gray-500 hover:text-[#F5C513] ">
+            <Link href={github} className="text-gray-600 hover:text-[#F5C513] ">
               <FaGithub className="w-5 h-5" />
             </Link>
           </li>
           <li>
             <Link
               href={linkedin}
-              className="text-gray-500 hover:text-[#F5C513]"
+              className="text-gray-600 hover:text-[#F5C513]"
             >
               <FaLinkedin className="w-5 h-5" />
             </Link>
