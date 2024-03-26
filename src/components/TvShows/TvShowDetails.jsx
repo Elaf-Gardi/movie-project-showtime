@@ -35,7 +35,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-black/100 overflow-hidden ">
-      <div className=" mx-auto pb-12 ">
+      <div className="mx-auto pb-12 ">
         <div>
           <div
             className="flex flex-col lg:flex-row p-6 pt-32"
@@ -80,10 +80,10 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                       .slice(0, 3)
                       .join(', ')}
                   </p>
-                  {/* <GoDot className="text-white" />
+                  <GoDot className="text-white" />
                   <p className="text-sm text-white font-Poppins ">
                     {convertRuntime(movieDetails.runtime)}
-                  </p> */}
+                  </p> 
                 </div>
               </div>
 
