@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import React from 'react'
 import Link from 'next/link'
@@ -36,7 +37,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#171717] overflow-hidden">
-      <div className=" md:pt-10">
+      <div>
         <div>
           <div
             className="flex flex-col lg:flex-row p-16"
@@ -98,7 +99,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 <p className="text-lg text-white font-bold font-Roboto">
                   User<br></br>Score
                 </p>
-                </div>
+              </div>
               <div className="flex flex-row items-center gap-6 mb-8">
                 <HeartIcon />
                 <WishListCheck />
@@ -117,8 +118,6 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   </button>
                 </div>
               </div>
-
-             
 
               <div className="flex flex-col">
                 <p className="text-xl font-Poppins font-semibold tracking-wide text-white mb-2">
