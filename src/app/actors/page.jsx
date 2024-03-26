@@ -23,7 +23,7 @@ const Actors = () => {
   }, [])
 
   return (
-    <div className="flex flex-row py-10 md:py-32 bg-black/100">
+    <div className="flex flex-row py-10 md:py-32 bg-[#171717]">
       <div className="flex flex-col md:items-start items-center mx-4 md:mx-10">
         <h1 className='text-primaryYellow/75 font-bold font-Poppins text-3xl w-full border-b border-primaryYellow/75 mb-8'>Actors</h1>
         <div className="flex flex-row flex-wrap justify-center items-center gap-10">

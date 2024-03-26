@@ -52,7 +52,7 @@ const Homepage = () => {
   )
 
   return (
-    <div className="p-4 bg-black/100">
+    <div className="p-4 px-3 bg-[#171717]">
       {renderMoviesCarousel(trendingMovies, 'Trending')}
       {renderMoviesCarousel(currentlyPlayingMovies, 'Currently Playing')}
       {renderMoviesCarousel(topRatedMovies, 'Top Rated')}

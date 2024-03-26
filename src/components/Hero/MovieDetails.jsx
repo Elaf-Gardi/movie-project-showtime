@@ -18,7 +18,7 @@ const MovieDetails = ({ selectedMovie, movieDetails }) => {
           <div className="mb-2 text-white/80 flex flex-wrap [&>*]:mx-1">
             <p>{movieDetails.release_date?.split('-')[0]} |</p>
             <p>{convertRuntime(movieDetails.runtime)} minutes |</p>
-            <div className="cursor-pointer rounded-sm text-sm text-white font-bold bg-teal-500 py-1 px-2 flex items-center justify-center">
+            <div className="cursor-pointer rounded-sm text-sm text-white font-bold bg-primaryYellow py-1 px-2 flex items-center justify-center">
               <p>{Math.round(movieDetails.vote_average * 10)}%</p>
             </div>
             <p>| {movieDetails.genres.map((genre) => genre.name).join(', ')}</p>
@@ -29,7 +29,7 @@ const MovieDetails = ({ selectedMovie, movieDetails }) => {
           <div className="mt-4">
             <Link
               href={`/movies/${selectedMovie?.id}`}
-              className="text-black font-semibold px-2 py-1.5 rounded-xl bg-primaryYellow hover:text-black/80 duration-100"
+              className="text-black font-semibold font-Poppins px-2 py-1.5 rounded-xl bg-primaryYellow hover:bg-primaryYellow/70 active:bg-primaryYellow transition-all ease-in-out duration-300"
             >
               Read More
             </Link>
