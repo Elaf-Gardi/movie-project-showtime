@@ -1,5 +1,6 @@
 import Navbar from '@/components/navbar/NavBar'
 import './globals.css'
+import Footer from '@/components/Footer/Footer'
 
 export const metadata = {
   title: 'ShowTime',
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
+        <Footer/>
       </body>
     </html>
   )
