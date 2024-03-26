@@ -35,7 +35,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#171717] overflow-hidden ">
-      <div className="mx-auto pb-12 ">
+      <div>
         <div>
           <div
             className="flex flex-col lg:flex-row p-6 pt-32"
@@ -178,7 +178,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 </h2>
               </div>
               <div className="flex flex-col justify-center items-center pt-12">
-                <div className="flex flex-row flex-wrap justify-center items-center gap-10">
+                <div className="flex flex-row flex-wrap justify-center items-center gap-14">
                   {credits.cast.slice(0, 5).map((actor) => (
                     <ActorCard key={actor.id} actor={actor} />
                   ))}
@@ -188,9 +188,9 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             </div>
 
             {/* Related Movies */}
-            <div className="mt-20">
+            <div className="my-20">
               <div className="flex items-start">
-              <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellowfont-Poppins mb-8">
+              <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellow font-Poppins mb-8">
                   Related TV Shows
                 </h2>
               </div>
