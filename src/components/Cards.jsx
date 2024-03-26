@@ -15,7 +15,7 @@ function Cards({ actors }) {
                   alt={`${actor.name}`}
                   className="object-cover rounded-2xl"
                 />
-                <div className="absolute rounded-2xl top-0 left-0 w-full h-full p-1 bg-black bg-opacity-75 text-white transition-opacity duration-300 opacity-0 hover:opacity-100 flex flex-col items-center justify-center">
+                <div className="absolute rounded-2xl top-0 left-0 w-full h-full p-1 bg-black bg-opacity-75 text-white transition-opacity duration-300 opacity-100 hover:opacity-0 flex flex-col items-center justify-center">
                   <h1 className="font-Poppins text-gray-100 text-opacity-55 text-xl font-extrabold tracking-wider text-center">
                     {actor.name}
                   </h1>

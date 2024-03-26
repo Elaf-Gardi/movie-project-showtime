@@ -93,9 +93,9 @@ const TvShowsPage = () => {
   }
 
   return (
-    <div className="bg-black/100">
+    <div className="bg-[#171717]">
       <HeroSection shows={tvShows} />
-      <h1 className="pl-4 md:pl-8 lg:pl-14 py-4 md:py-10 text-3xl md:text-4xl lg:text-5xl text-customeYellow font-Poppins font-semibold text-center md:text-left">
+      <h1 className="pl-4 md:pl-8 lg:pl-14 py-4 md:py-10 text-3xl md:text-4xl lg:text-5xl text-primaryYellow font-Poppins font-semibold text-center md:text-left">
         {genreName[0].toUpperCase() + genreName.slice(1)}
       </h1>
       <div className="pagination-buttons flex justify-between px-10 mt-10">
