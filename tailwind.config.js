@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customeYellow :'#F5C513',
-        customeBlue : '#5799EF'
+        primaryYellow: '#F5C513',
+        customeBlue: '#5799EF',
       },
       fontFamily: {
         Roboto: ['Roboto', 'sans'],
@@ -19,6 +19,8 @@ module.exports = {
     plugins: [],
   },
 }
-{/**
+{
+  /**
 --color-surface-mixed-100: #0d1f3d;
-*/}
+*/
+}

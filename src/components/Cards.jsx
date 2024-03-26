@@ -9,9 +9,7 @@ function Cards({ actors }) {
         {actors.map((actor) => (
           <Link key={actor.id} href={`/actors/${actor.id}`} legacyBehavior>
             <a>
-              <div
-                className="lg:w-52 w-64 rounded-2xl relative border hover:scale-110 transition-all duration-300 ease-in-out border-white shadow-lg"
-              >
+              <div className="lg:w-52 w-64 rounded-2xl relative border hover:scale-110 transition-all duration-300 ease-in-out border-white shadow-lg">
                 <img
                   src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
                   alt={`${actor.name}`}
@@ -22,7 +20,7 @@ function Cards({ actors }) {
                     {actor.name}
                   </h1>
                   <div className="mt-2">
-                    <BsFillSuitHeartFill className="text-customeYellow  hover:text-customeYellow/75  active:text-customeYellow " />
+                    <BsFillSuitHeartFill className="text-primaryYellow  hover:text-primaryYellow/75  active:text-primaryYellow " />
                   </div>
                 </div>
               </div>

@@ -60,7 +60,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                 <h1 className="lg:text-4xl text-3xl text-white font-Poppins font-bold">
                   {movieDetails.title}
                 </h1>
-                <p className="text-black font-Poppins rounded-full py-1 px-2.5 bg-customeYellow font-bold text-sm lg:text-lg">
+                <p className="text-black font-Poppins rounded-full py-1 px-2.5 bg-primaryYellow font-bold text-sm lg:text-lg">
                   {getYear(movieDetails.release_date)}
                 </p>
               </div>
@@ -90,31 +90,30 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
 
               <div className="flex flex-row gap-2 items-center mb-6">
                 <div
-                  className="rounded-full cursor-pointer hover:scale-110 text-lg text-white font-bold transition-all duration-300 ease-in-out bg-gray-900 hover:bg-customeYellow/90 w-12 h-12 flex items-center justify-center"
+                  className="rounded-full cursor-pointer hover:scale-110 text-lg text-white font-bold transition-all duration-300 ease-in-out bg-gray-900 hover:bg-primaryYellow/90 w-12 h-12 flex items-center justify-center"
                   title={`${movieDetails.vote_count} user score`}
                 >
                   <p>{Math.round(movieDetails.vote_average * 10)}%</p>
                 </div>
-               
-              <div className="flex flex-row items-center gap-6 mb-8">
-                <HeartIcon />
-                <WishListCheck />
-                <div>
-                  <button
-                    onClick={() => {
-                      window.open(
-                        `https://www.youtube.com/watch?v=${mainTrailer.key}`,
-                        '_blank',
-                      )
-                    }}
-                    className="flex items-center justify-center gap-1 text-white font-bold hover:text-customeYellow/80 active:text-white transition duration-300"
-                  >
-                    <BsFillPlayFill className="text-2xl" />
-                    Play Trailer
-                  </button>
-                </div>
-              </div>
 
+                <div className="flex flex-row items-center gap-6 mb-8">
+                  <HeartIcon />
+                  <WishListCheck />
+                  <div>
+                    <button
+                      onClick={() => {
+                        window.open(
+                          `https://www.youtube.com/watch?v=${mainTrailer.key}`,
+                          '_blank',
+                        )
+                      }}
+                      className="flex items-center justify-center gap-1 text-white font-bold hover:text-primaryYellow/80 active:text-white transition duration-300"
+                    >
+                      <BsFillPlayFill className="text-2xl" />
+                      Play Trailer
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div className="flex flex-col">
@@ -174,7 +173,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Main Cast */}
             <div className="mt-20">
               <div className="flex items-start">
-                <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins">
+                <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellow font-Poppins">
                   Top billed cast
                 </h2>
               </div>
@@ -190,7 +189,7 @@ const MovieDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Related Movies */}
             <div className="mt-20 mb-10">
               <div className="flex items-start">
-              <h2 className="text-2xl mx-20 w-full font-bold text-customeYellow border-b border-customeYellow font-Poppins mb-8">
+                <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellow font-Poppins mb-8">
                   Related Movies
                 </h2>
               </div>

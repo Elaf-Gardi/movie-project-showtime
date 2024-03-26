@@ -37,7 +37,7 @@ const Homepage = () => {
 
   const renderMoviesCarousel = (movies, title) => (
     <div className="mb-8 lg:min-h-96">
-      <h2 className="text-2xl font-bold mb-6">{title}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primaryYellow">{title}</h2>
       <Carousel
         {...homePageCarouselConfig}
         customButtonGroup={<CustomArrows />}
@@ -52,7 +52,7 @@ const Homepage = () => {
   )
 
   return (
-    <div className="p-4">
+    <div className="px-3 md:px-8 py-12 bg-[#080B12]">
       {renderMoviesCarousel(trendingMovies, 'Trending')}
       {renderMoviesCarousel(currentlyPlayingMovies, 'Currently Playing')}
       {renderMoviesCarousel(topRatedMovies, 'Top Rated')}

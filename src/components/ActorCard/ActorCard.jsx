@@ -17,7 +17,7 @@ const ActorCard = ({ actor }) => {
           </h1>
 
           <div className="mt-2">
-          <BsFillSuitHeartFill className="text-customeYellow/75  hover:text-customeYellow active:text-customeYellow/75  " />
+            <BsFillSuitHeartFill className="text-primaryYellow/75  hover:text-primaryYellow active:text-primaryYellow/75  " />
           </div>
         </div>
       </div>
