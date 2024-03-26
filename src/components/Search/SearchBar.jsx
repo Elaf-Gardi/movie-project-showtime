@@ -3,7 +3,7 @@ import { FaSearch, FaSpinner } from 'react-icons/fa'
 import SearchResults from './SearchResults'
 import { fetchData } from '@/_utils/fetchData'
 
-const SearchBar = ({ isScrolled }) => {
+const SearchBar = ({ isScrolled, toggleMenu }) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -22,7 +22,7 @@ const SearchBar = ({ isScrolled }) => {
     try {
       const endpoint = `/search/multi?query=${value}`
       const data = await fetchData(endpoint)
-      console.log(data);
+      console.log(data)
       setSearchResults(data.results)
     } catch (error) {
       console.error('Search error:', error)
@@ -68,7 +68,11 @@ const SearchBar = ({ isScrolled }) => {
       />
 
       {searchResults.length > 0 && (
-        <SearchResults results={searchResults} closeDropdown={closeDropdown} />
+        <SearchResults
+          toggleMenu={toggleMenu}
+          results={searchResults}
+          closeDropdown={closeDropdown}
+        />
       )}
     </div>
   )

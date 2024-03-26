@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 import { TMDB_IMAGE_BASE_URL } from '@/data/constants'
-const SearchResults = ({ results, closeDropdown }) => {
+const SearchResults = ({ results, closeDropdown, toggleMenu }) => {
   const handleClick = () => {
     closeDropdown()
+    if (window.innerWidth < 450) {
+      toggleMenu()
+    }
   }
   const getUrl = (result) => {
     return `/${
