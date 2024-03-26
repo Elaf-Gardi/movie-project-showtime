@@ -36,7 +36,7 @@ const Homepage = () => {
   }, [])
 
   const renderMoviesCarousel = (movies, title) => (
-    <div className="mb-8">
+    <div className="mb-8 lg:min-h-96">
       <h2 className="text-2xl font-bold mb-6">{title}</h2>
       <Carousel
         {...homePageCarouselConfig}
