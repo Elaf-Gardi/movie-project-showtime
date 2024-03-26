@@ -40,7 +40,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
           <div
             className="flex flex-col lg:flex-row p-6 pt-32"
             style={{
-              background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${TMDB_IMAGE_BASE_URL}${movieDetails.backdrop_path})`,
+              background: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url(${TMDB_IMAGE_BASE_URL}original${movieDetails.backdrop_path})`,
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
             }}
@@ -83,7 +83,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   <GoDot className="text-white" />
                   <p className="text-sm text-white font-Poppins ">
                     {convertRuntime(movieDetails.runtime)}
-                  </p> 
+                  </p>
                 </div>
               </div>
 
@@ -173,7 +173,7 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
             {/* Main Cast */}
             <div className="mt-10">
               <div className="flex justify-center">
-              <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellow font-Poppins">
+                <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellow font-Poppins">
                   Top billed cast
                 </h2>
               </div>
@@ -184,12 +184,12 @@ const TvShowDetails = ({ movieDetails, credits, relatedMovies, trailers }) => {
                   ))}
                 </div>
               </div>
-              
             </div>
 
             {/* Related Movies */}
             <div className="my-20">
               <div className="flex items-start">
+
               <h2 className="text-2xl mx-20 w-full font-bold text-primaryYellow border-b border-primaryYellow font-Poppins mb-8">
                   Related TV Shows
                 </h2>
