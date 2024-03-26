@@ -1,4 +1,4 @@
-import { Menu, Transition } from '@headlessui/react'
+import { Menu } from '@headlessui/react'
 import DropdownItem from './DropdownItem'
 import { FaAngleDown } from 'react-icons/fa'
 
@@ -15,7 +15,7 @@ const Dropdown = ({ title, options, baseUrl }) => {
           <DropdownItem
             key={option.id}
             option={option.name}
-            href={`${baseUrl}${option.name}`}
+            href={`${baseUrl}${option.name.replace(/\s/g, '_').toLowerCase()}`}
           />
         ))}
       </Menu.Items>
