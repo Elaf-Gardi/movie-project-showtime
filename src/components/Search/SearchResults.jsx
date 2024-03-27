@@ -37,8 +37,10 @@ const SearchResults = ({ results, closeDropdown, toggleMenu }) => {
             </p>
             <p className="text-xs text-gray-500">
               {result.media_type === 'movie' || result.media_type === 'tv'
-                ? result.release_date
-                  ? `${result.release_date.substring(0, 4)}`
+                ? result.release_date || result.first_air_date
+                  ? result.release_date
+                    ? result.release_date.substring(0, 4)
+                    : result.first_air_date.substring(0, 4)
                   : ''
                 : ''}
             </p>
